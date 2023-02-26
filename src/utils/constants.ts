@@ -19,3 +19,6 @@ export const menuData = [
         index: 2,
     },
 ];
+
+export const LOGIN_BUTTON_TEXT = 'Войти';
+export const LOGOUT_BUTTON_TEXT = 'Выйти';
