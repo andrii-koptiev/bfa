@@ -11,12 +11,7 @@ import {
 import { signInWithPopup, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 
-import {
-  LOGIN_BUTTON_TEXT,
-  LOGOUT_BUTTON_TEXT,
-  auth,
-  provider,
-} from '../utils';
+import { TEXT_LOGIN, auth, provider } from '../../utils';
 
 interface Setting {
   name: string;
@@ -58,7 +53,11 @@ const Login: React.FC = () => {
   };
 
   const settings: Setting[] = [
-    { name: 'logout', description: LOGOUT_BUTTON_TEXT, onClose: onLogout },
+    {
+      name: 'logout',
+      description: TEXT_LOGIN.LOGOUT_BUTTON,
+      onClose: onLogout,
+    },
   ];
 
   useEffect(() => {
@@ -66,7 +65,7 @@ const Login: React.FC = () => {
     setUserName(localStorage.getItem('name'));
     setPhotoUrl(localStorage.getItem('photoUrl'));
     console.log(photoUrl);
-  }, []);
+  }, [photoUrl]);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -130,7 +129,7 @@ const Login: React.FC = () => {
           disableElevation
           onClick={onLogin}
         >
-          {LOGIN_BUTTON_TEXT}
+          {TEXT_LOGIN.LOGIN_BUTTON}
         </Button>
       )}
     </>

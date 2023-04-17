@@ -1,12 +1,12 @@
 import React from 'react';
 
 import './App.css';
-import { MiniDrawer } from './components/Drawer';
+import Layout from './layout/Layout';
 
 function App() {
   return (
     <div className='App'>
-      <MiniDrawer />
+      <Layout />
     </div>
   );
 }

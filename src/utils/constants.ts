@@ -1,24 +1,10 @@
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import SummarizeIcon from '@mui/icons-material/Summarize';
+// TEXT
+export const TEXT_LOGIN = {
+  LOGIN_BUTTON: 'Войти',
+  LOGOUT_BUTTON: 'Выйти',
+};
 
-export const menuData = [
-  {
-    name: 'Добавить заказ',
-    icon: ShoppingCartIcon,
-    index: 0,
-  },
-  {
-    name: 'Отметить оплату',
-    icon: AttachMoneyIcon,
-    index: 1,
-  },
-  {
-    name: 'Отчеты',
-    icon: SummarizeIcon,
-    index: 2,
-  },
-];
-
-export const LOGIN_BUTTON_TEXT = 'Войти';
-export const LOGOUT_BUTTON_TEXT = 'Выйти';
+// STYLES
+export const STYLES_CONSTANTS = {
+  DRAWER_WIDTH: '240px',
+};
