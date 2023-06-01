@@ -8,3 +8,7 @@ export const TEXT_LOGIN = {
 export const STYLES_CONSTANTS = {
   DRAWER_WIDTH: '240px',
 };
+
+// Api
+export const BASE_URL =
+  'https://buyer-financial-accounting-default-rtdb.europe-west1.firebasedatabase.app/';
