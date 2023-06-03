@@ -1,21 +1,33 @@
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 
+import { ROUTES } from '../navigation/constants';
+
 export const menuData = [
   {
-    name: 'Добавить заказ',
+    id: 1,
+    name: 'Клієнти',
+    route: ROUTES.CLIENTS,
+    icon: GroupOutlinedIcon,
+  },
+  {
+    name: 'Замовлення',
     icon: ShoppingCartIcon,
-    index: 0,
+    route: ROUTES.CLIENTS,
+    id: 2,
   },
   {
-    name: 'Отметить оплату',
+    name: 'Оплати',
     icon: AttachMoneyIcon,
-    index: 1,
+    route: ROUTES.CLIENTS,
+    id: 3,
   },
   {
-    name: 'Отчеты',
+    name: 'Звіти',
     icon: SummarizeIcon,
-    index: 2,
+    route: ROUTES.CLIENTS,
+    id: 4,
   },
 ];

@@ -1,5 +1,7 @@
 export interface ClientWithoutIdInterface {
   name: string;
+  phone: string;
+  postAddress: string;
 }
 
 export interface ClientFromApiInterface {

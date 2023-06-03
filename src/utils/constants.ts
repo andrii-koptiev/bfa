@@ -4,6 +4,15 @@ export const TEXT_LOGIN = {
   LOGOUT_BUTTON: 'Выйти',
 };
 
+export const TEXT_CONSTANTS = {
+  COMMON: {},
+  CLIENTS: {
+    PAGE_TITLE: 'Клієнти',
+    PAGE_SUBTITLE: 'управляй своїми клієнтами',
+    ADD_BUTTON: 'Додати клієнта',
+  },
+};
+
 // STYLES
 export const STYLES_CONSTANTS = {
   DRAWER_WIDTH: '240px',

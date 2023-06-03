@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import { FC, useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import { DrawerHeader } from './components/DrawerHeader';
 import LayoutHeader from './components/LayoutHeader';
@@ -24,6 +25,7 @@ export const Layout: FC = () => {
       <LayoutMenu isMenuOpened={open} onClose={handleDrawerClose} />
       <Box component='main' sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
+        <Outlet />
       </Box>
     </Box>
   );
