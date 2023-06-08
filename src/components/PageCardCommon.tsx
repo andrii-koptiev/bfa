@@ -50,18 +50,18 @@ const PageCardCommon: FC<Props> = ({
     },
     content: {
       flexGrow: 1,
-      display:"flex"',
-      paddingBottom:"16px"',
-      flexDirection:"column"',
-     "&:last-child"': {
-        padding: ,
-      ,
+      display: 'flex',
+      paddingBottom: '16px',
+      flexDirection: 'column',
+      '&:last-child': {
+        padding: 0,
+      },
     },
     contentElement: {
       flexGrow: 1,
-      display:"flex"',
-      flexDirection:"column",
-    ,
+      display: 'flex',
+      flexDirection: 'column',
+    },
   };
 
   return (
