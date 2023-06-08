@@ -1,44 +1,44 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from '@mui/material';
 
 
 export const theme = createTheme({
   components: {
     MuiButtonBase: {
       defaultProps: {
-        disableRipple: true,
-      },
+        disableRipple: tru,
+      ,
     },
     MuiIconButton: {
       styleOverrides: {
         root: {
-       "&:hover"er': {
-            backgroundColo"transparent"t',
-         },
-       },
-     },
+         "&:hover"': {
+            backgroundColor:"transparent",
+          ,
+        ,
+      ,
     },
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
-            backgroundColor: "transparent",
-            width: "8px",
-            height: "8px"
+         "&::-webkit-scrollbar, & *::-webkit-scrollbar"': {
+            backgroundColor:"transparent"',
+            width:"8px"',
+            height:"8px",
           },
-          "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
+         "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb"': {
             borderRadius: 8,
-            backgroundColor: "#9A9A9A",
-            minHeight: 24
+            backgroundColor:"#9A9A9A"',
+            minHeight: 2,
           },
-          "&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover":
+         "&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover"':
             {
-              backgroundColor: "#64748B"
+              backgroundColor:"#64748B",
             },
-          "&::-webkit-scrollbar": {
-            width: "8px",
-            height: "8px"
-          }
-        },
+         "&::-webkit-scrollbar"': {
+            width:"8px"',
+            height:"8px",
+          ,
+        ,
       },
     },
   },

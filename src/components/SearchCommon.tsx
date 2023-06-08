@@ -53,12 +53,7 @@ const SearchCommon: FC<Props> = ({
     <Box height='64px' width='100%' display='flex' alignItems='center'>
       <InputStyled
         sx={styles.input}
-        // minheight='inherit'
-        defaultValue={sarchQuery}
-        // padding='8px'
-        // radius='4px'
-        // bgcolor={palette.common.white}
-        // border='1px'
+        defaultValue={searchQuery}
         placeholder={searchPlaceholder}
         onChange={handleSearch}
         InputProps={{

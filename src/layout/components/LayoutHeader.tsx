@@ -1,6 +1,9 @@
-import MuiAppBar from "@mui/material/AppBar";
-import React, { FC } from "react";
+import MenuIcon from '@mui/icons-material/Menu';
+import { Box, IconButton, Toolbar, Typography } from '@mui/material';
+import MuiAppBar from '@mui/material/AppBar';
+import { FC, memo } from 'react';
 
+import Login from '../../features/login/Login';
 
 type Props = {
   onMenuToggle: () => void;
@@ -9,11 +12,11 @@ type Props = {
 const LayoutHeader: FC<Props> = ({ onMenuToggle }) => {
   const styles = {
     toolbar: {
-      widt"100%"%',
+      width: '100%',
     },
     iconButton: {
-      marginRight 5,
-   },
+      marginRight: 5,
+    },
   };
   return (
     <MuiAppBar positi"n='fi"ed'>

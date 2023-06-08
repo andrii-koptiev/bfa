@@ -33,7 +33,7 @@ const ClientsList: FC<Props> = ({ items, onDeleteItem, onEditItem }) => {
       onEditItem,
       onDeleteItem,
       state,
-      removeStringOpertor,
+      removeStringOperator,
     });
   }, [onEditItem, onDeleteItem, state, removeStringOperator]);
 

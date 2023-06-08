@@ -1,5 +1,5 @@
-import { filter } from "lodash";
-import { useCallback, useEffect, useState } from "react";
+import { filter } from 'lodash';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useLocalSearch = <RowType extends { [key: string]: any }>(
   data: RowType[],

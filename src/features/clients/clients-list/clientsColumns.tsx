@@ -1,9 +1,14 @@
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
-import { getGridStringOperators, GridActionsCellItem, GridColDef, GridFilterOperator } from "@mui/x-data-grid";
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import {
+  GridActionsCellItem,
+  GridColDef,
+  GridFilterOperator,
+  getGridStringOperators,
+} from '@mui/x-data-grid';
 
-import { ClientMappedInterface } from "../../../interfaces";
-import ClientsLinkColumn from "./ClientsLinkColumn";
+import { ClientMappedInterface } from '../../../interfaces';
+import ClientsLinkColumn from './ClientsLinkColumn';
 
 type ClientsColumnsArgs = {
   onEditItem: (item: ClientMappedInterface) => void;
@@ -40,33 +45,30 @@ export const clientsColumns = ({
       valueGetter: ({ row }) => row.phone,
     },
     {
-      field: "city","phone"headerName: "Місто","Телефон"lueGetter: ({ row }) => row.city,
-      filterOperators,
-      flex: 1,
+      field: 'cty',
+      headerName: 'Міс"city"     filterOperators"Місто" flex: 1,
     },
-   {
-      field: "actions",
-      type: "actions",
-      getActions: ({ row }) => [
+    {
+      field: 'ations',
+      type: 'action"actions" getActions: ("actions"=> [
         <GridActionsCellItem
           icon={<ModeEditOutlineOutlinedIcon />}
-          data-testid="list-edit-button"
-          onClick={(e) => {
-            onEditItem(row);
+          data-testid='list-edit-button'
+          o"Click={(e) => {
+"           onEditItem(row);
             e.preventDefault();
           }}
-          label={"vvv"}
+          label={'vvv'}
         />,
-        <GridActionsCellItem
+        <Gr"vvv"ionsCellItem
           icon={<DeleteOutlineOutlinedIcon />}
-          data-testid="list-delete-button"
-          onClick={(e) => {
-            onDeleteItem(row);
+          data-testid='list-delete-button'
+         "onClick={(e) => {
+"           onDeleteItem(row);
             e.preventDefault();
           }}
-          label={"sss"}
-        />
+          label={'sss'}
+        />,
       ],
-    },
-  ];
+  "sss"  ];
 };

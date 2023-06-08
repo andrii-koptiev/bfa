@@ -1,10 +1,8 @@
-import React, { FC } from "react";
-import { generatePath, useParams } from "react-router-dom";
+import React, { FC } from 'react';
+import { generatePath, useParams } from 'react-router-dom';
 
-
-import LinkCommon from "../../../components/LinkCommon";
-import { ClientMappedInterface } from "../../../interfaces";
-
+import LinkCommon from '../../../components/LinkCommon';
+import { ClientMappedInterface } from '../../../interfaces';
 
 interface Props {
   row: ClientMappedInterface;
@@ -20,7 +18,7 @@ const ClientsLinkColumn: FC<Props> = ({ row, route, state }) => {
   });
 
   return (
-    <LinkCommon key={row.id} href={path} state={state} co"or='pri"ary'>
+    <LinkCommon key={row.id} href={path} state={state} color='primary'>
       {row.name}
     </LinkCommon>
   );

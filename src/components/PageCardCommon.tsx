@@ -1,6 +1,12 @@
-import { Box, Card, CardContent, Divider, Typography, useTheme } from "@mui/material";
-import { FC, memo, ReactNode } from "react";
-
+import {
+  Box,
+  Card,
+  CardContent,
+  Divider,
+  Typography,
+  useTheme,
+} from '@mui/material';
+import { FC, ReactNode, memo } from 'react';
 
 type Props = {
   title: string;
@@ -44,18 +50,19 @@ const PageCardCommon: FC<Props> = ({
     },
     content: {
       flexGrow: 1,
-      display: 'flex',
-      paddingBottom: '16px',
-      flexDirection: 'column',
-      '&:last-child': {
-        padding: 0,
-      },
+      display:"flex"',
+      paddingBottom:"16px"',
+      flexDirection:"column"',
+     "&:last-child"': {
+        padding: ,
+      ,
     },
     contentElement: {
       flexGrow: 1,
-      display: 'flex',
-  "flex"exDirection: 'column',
-"column"};
+      display:"flex"',
+      flexDirection:"column",
+    ,
+  };
 
   return (
     <Card sx={styles.cardContainer}>
