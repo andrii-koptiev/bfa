@@ -26,13 +26,13 @@ const PageCardCommon: FC<Props> = ({
   const { palette } = useTheme();
   const styles = {
     cardContainer: {
-      width: '100%',
+      width: "100%",
       flexGrow: 1,
-      minHeight: `calc(100vh - 120px)`,
-      display: 'flex',
-      flexDirection: 'column',
-      padding: '16px 32px',
-      overflow: 'auto',
+      height: `calc(100vh - 128px)`,
+      display: "flex",
+      flexDirection: "column",
+      padding: "16px 32px",
+      overflow: "auto"
     },
     headerContainer: {
       display: 'flex',
@@ -55,9 +55,9 @@ const PageCardCommon: FC<Props> = ({
       },
     },
     contentElement: {
-      flexGro: 1,
-      display: 'flex',
-      flexDirection: 'column',
+      flexGrow: 1,
+      display: "flex",
+      flexDirection: "column"
     },
   };
 

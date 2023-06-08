@@ -27,17 +27,17 @@ export const clientsModel = createModel<RootModel>()({
         },
       );
 
-      await dispatch.domains.getClients();
+      await dispatch.clients.getClients();
     },
 
     async getClients() {
-      await getClients()
+      const clients = await getClients()
         .then((res) => mapClientsFromApi(res.data))
         .catch((e: AxiosError<{ message: string[] }>) => {
           throw new Error(e.response?.data.message.join());
         });
 
-      await dispatch.domains.getDomains();
+      await dispatch.clients.setClients(clients);
     },
   }),
 });

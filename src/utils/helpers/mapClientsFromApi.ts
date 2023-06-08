@@ -8,5 +8,5 @@ export const mapClientsFromApi = (
 ): ClientMappedInterface[] =>
   Object.keys(apiData).map((id) => ({
     id,
-    data: { ...apiData[id] },
+    ...apiData[id]
   }));
