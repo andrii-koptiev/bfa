@@ -15,19 +15,19 @@ export const menuData = [
   {
     name: 'Замовлення',
     icon: ShoppingCartIcon,
-    route: ROUTES.CLIENTS,
+    route: '',
     id: 2,
   },
   {
     name: 'Оплати',
     icon: AttachMoneyIcon,
-    route: ROUTES.CLIENTS,
+    route: '',
     id: 3,
   },
   {
     name: 'Звіти',
     icon: SummarizeIcon,
-    route: ROUTES.CLIENTS,
+    route: '',
     id: 4,
   },
 ];

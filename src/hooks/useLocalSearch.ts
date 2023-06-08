@@ -1,11 +1,11 @@
-import { filter } from "lodash";
-import { useCallback, useEffect, useState } from "react";
+import { filter } from 'lodash';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useLocalSearch = <RowType extends { [key: string]: any }>(
   data: RowType[],
-  searchKeys?: string[]
+  searchKeys?: string[],
 ) => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [searchResult, setSearchResult] = useState<RowType[]>([]);
   // State controls input focus for GridFilterBarShared if user searched in grid
   const [isInputTouched, setIsInputTouched] = useState(false);
@@ -34,14 +34,14 @@ export const useLocalSearch = <RowType extends { [key: string]: any }>(
 
       return matches.length > 0;
     },
-    []
+    [],
   );
 
   const searchItems = useCallback(() => {
     const query = searchQuery.toLowerCase();
 
     const filteredData = data.filter((item) =>
-      isRowValuesIncludesQuery(item, query, searchKeys)
+      isRowValuesIncludesQuery(item, query, searchKeys),
     );
 
     setSearchResult(filteredData);
@@ -52,6 +52,6 @@ export const useLocalSearch = <RowType extends { [key: string]: any }>(
     setSearchQuery,
     searchQuery,
     isInputTouched,
-    setIsInputTouched
+    setIsInputTouched,
   };
 };

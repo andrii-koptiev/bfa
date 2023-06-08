@@ -1,35 +1,35 @@
-import { TextField, styled } from "@mui/material";
-import { TextFieldProps } from "@mui/material/TextField";
-import { CSSObject } from "@mui/material/styles";
+import { TextField, styled } from '@mui/material';
+import { TextFieldProps } from '@mui/material/TextField';
+import { CSSObject } from '@mui/material/styles';
 
 interface StyledTextFieldProps
   extends Omit<
     TextFieldProps,
-    "inputRef" | "onChange" | "onBlur" | "onFocus" | "onKeyDown"
+    'inputRef' | 'onChange' | 'onBlur' | 'onFocus' | 'onKeyDown'
   > {
-  inputRef?: TextFieldProps["inputRef"];
-  onChange?: TextFieldProps["onChange"];
-  onBlur?: TextFieldProps["onBlur"];
-  onFocus?: TextFieldProps["onFocus"];
-  onKeyDown?: TextFieldProps["onKeyDown"];
+  inputRef?: TextFieldProps['inputRef'];
+  onChange?: TextFieldProps['onChange'];
+  onBlur?: TextFieldProps['onBlur'];
+  onFocus?: TextFieldProps['onFocus'];
+  onKeyDown?: TextFieldProps['onKeyDown'];
 }
 
 export const InputStyled = styled(TextField)<StyledTextFieldProps>(
   ({ theme }): CSSObject => ({
-    "& .MuiInputBase-input": {
-      padding: "8px",
+    '& .MuiInputBase-input': {
+      padding: '8px',
       borderRadius: theme.shape.borderRadius,
-      fontSize: "14px"
+      fontSize: '14px',
     },
-    "& .MuiFormLabel-root": {
+    '& .MuiFormLabel-root': {
       color: theme.palette.common.black,
       fontWeight: theme.typography.fontWeightLight,
-      fontSize: 14
+      fontSize: 14,
     },
-    "& fieldset": {
+    '& fieldset': {
       borderRadius: theme.shape.borderRadius,
-      borderColor: theme.palette.divider
+      borderColor: theme.palette.divider,
     },
-    borderRadius: theme.shape.borderRadius
-  })
+    borderRadius: theme.shape.borderRadius,
+  }),
 );

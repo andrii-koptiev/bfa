@@ -1,1 +1,1 @@
-export * from "./select-all-clients";
+export * from './select-all-clients';

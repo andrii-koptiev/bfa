@@ -23,16 +23,19 @@ const PageCardCommon: FC<Props> = ({
   contentElement = null,
   showDivider = false,
 }) => {
-  const { palette } = useTheme();
+  const { palette, transitions } = useTheme();
   const styles = {
     cardContainer: {
-      width: "100%",
+      width: '100%',
       flexGrow: 1,
-      height: `calc(100vh - 128px)`,
-      display: "flex",
-      flexDirection: "column",
-      padding: "16px 32px",
-      overflow: "auto"
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '16px 32px',
+      overflow: 'auto',
+      transition: transitions.create(['width'], {
+        easing: transitions.easing.sharp,
+        duration: transitions.duration.leavingScreen,
+      }),
     },
     headerContainer: {
       display: 'flex',
@@ -56,8 +59,8 @@ const PageCardCommon: FC<Props> = ({
     },
     contentElement: {
       flexGrow: 1,
-      display: "flex",
-      flexDirection: "column"
+      display: 'flex',
+      flexDirection: 'column',
     },
   };
 

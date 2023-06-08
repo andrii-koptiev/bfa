@@ -1,11 +1,11 @@
-import React, { FC, memo, useCallback, useMemo } from "react";
-import { useLocation } from "react-router-dom";
+import React, { FC, memo, useCallback, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import DataGridCommon from "../../../components/DataGridCommon";
-import { useDataGridFilter, useLocalSearch } from "../../../hooks";
-import { ClientMappedInterface } from "../../../interfaces";
-import { TEXT_CONSTANTS } from "../../../utils";
-import { clientsColumns } from "./clientsColumns";
+import DataGridCommon from '../../../components/DataGridCommon';
+import { useDataGridFilter, useLocalSearch } from '../../../hooks';
+import { ClientMappedInterface } from '../../../interfaces';
+import { TEXT_CONSTANTS } from '../../../utils';
+import { clientsColumns } from './clientsColumns';
 
 type Props = {
   items: ClientMappedInterface[];
@@ -14,14 +14,14 @@ type Props = {
 };
 
 const ClientsList: FC<Props> = ({ items, onDeleteItem, onEditItem }) => {
-  const searchByKeys = ["name", "phone"];
+  const searchByKeys = ['name', 'phone'];
 
   const {
     setSearchQuery,
     searchResult,
     searchQuery,
     isInputTouched,
-    setIsInputTouched
+    setIsInputTouched,
   } = useLocalSearch<ClientMappedInterface>(items, searchByKeys);
 
   const { removeStringOperator } = useDataGridFilter();
@@ -33,7 +33,7 @@ const ClientsList: FC<Props> = ({ items, onDeleteItem, onEditItem }) => {
       onEditItem,
       onDeleteItem,
       state,
-      removeStringOperator
+      removeStringOperator,
     });
   }, [onEditItem, onDeleteItem, state, removeStringOperator]);
 
@@ -41,7 +41,7 @@ const ClientsList: FC<Props> = ({ items, onDeleteItem, onEditItem }) => {
     (value: string) => {
       setSearchQuery(value);
     },
-    [setSearchQuery]
+    [setSearchQuery],
   );
 
   return (
