@@ -19,19 +19,19 @@ const LayoutHeader: FC<Props> = ({ onMenuToggle }) => {
     },
   };
   return (
-    <MuiAppBar positi"n='fi"ed'>
+    <MuiAppBar position='fixed'>
       <Toolbar sx={styles.toolbar}>
         <IconButton
-          col"r='inhe"it'
-          aria-lab"l='open dra"er'
+          color='inherit'
+          aria-label='open drawer'
           onClick={onMenuToggle}
-          ed"e='st"rt'
+          edge='start'
           sx={styles.iconButton}
         >
           <MenuIcon />
         </IconButton>
         <Box flexGrow={1}>
-          <Typography varia"t="h6' noWrap compone"t='"iv'>
+          <Typography variant='h6' noWrap component='div'>
             Mini variant drawer
           </Typography>
         </Box>

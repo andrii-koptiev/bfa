@@ -34,14 +34,14 @@ export const useLocalSearch = <RowType extends { [key: string]: any }>(
 
       return matches.length > 0;
     },
-    [,
+    [],
   );
 
   const searchItems = useCallback(() => {
     const query = searchQuery.toLowerCase();
 
     const filteredData = data.filter((item) =>
-      isRowValuesIncludesQuery(item, query, searchKeys)
+      isRowValuesIncludesQuery(item, query, searchKeys),
     );
 
     setSearchResult(filteredData);
@@ -52,6 +52,6 @@ export const useLocalSearch = <RowType extends { [key: string]: any }>(
     setSearchQuery,
     searchQuery,
     isInputTouched,
-    setIsInputTouched
+    setIsInputTouched,
   };
 };

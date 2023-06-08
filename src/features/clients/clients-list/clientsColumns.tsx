@@ -45,30 +45,34 @@ export const clientsColumns = ({
       valueGetter: ({ row }) => row.phone,
     },
     {
-      field: 'cty',
-      headerName: 'Міс"city"     filterOperators"Місто" flex: 1,
+      field: 'city',
+      headerName: 'Місто',
+      filterOperators,
+      flex: 1,
     },
     {
       field: 'ations',
-      type: 'action"actions" getActions: ("actions"=> [
+      type: 'actions',
+      getActions: ({ row }) => [
         <GridActionsCellItem
           icon={<ModeEditOutlineOutlinedIcon />}
           data-testid='list-edit-button'
-          o"Click={(e) => {
-"           onEditItem(row);
+          onClick={(e) => {
+            onEditItem(row);
+            e.preventDefault();
+          }}
+          label='vvv'
+        />,
+        <GridActionsCellItem
+          icon={<DeleteOutlineOutlinedIcon />}
+          data-testid='list-delete-button'
+          onClick={(e) => {
+            onDeleteItem(row);
             e.preventDefault();
           }}
           label={'vvv'}
         />,
-        <Gr"vvv"ionsCellItem
-          icon={<DeleteOutlineOutlinedIcon />}
-          data-testid='list-delete-button'
-         "onClick={(e) => {
-"           onDeleteItem(row);
-            e.preventDefault();
-          }}
-          label={'sss'}
-        />,
       ],
-  "sss"  ];
+    },
+  ];
 };
