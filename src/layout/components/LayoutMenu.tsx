@@ -13,6 +13,7 @@ import {
 import MuiDrawer from '@mui/material/Drawer';
 import { CSSObject, Theme, styled } from '@mui/material/styles';
 import React, { FC, memo } from 'react';
+import { Link, generatePath } from 'react-router-dom';
 
 import { STYLES_CONSTANTS } from '../../utils';
 import { menuData } from '../../utils/menuData';
@@ -80,13 +81,15 @@ export const LayoutMenu: FC<MenuProps> = ({ isMenuOpened, onClose }) => {
       <Divider />
       <List>
         {menuData.map((item) => (
-          <ListItem key={item.index} disablePadding sx={{ display: 'block' }}>
+          <ListItem key={item.id} disablePadding sx={{ display: 'block' }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
                 justifyContent: isMenuOpened ? 'initial' : 'center',
                 px: 2.5,
               }}
+              component={Link}
+              to={generatePath(item.route)}
             >
               <ListItemIcon
                 sx={{
