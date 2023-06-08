@@ -9,6 +9,10 @@ export const TEXT_CONSTANTS = {
     EMPTY_DATA_GRID: 'Відсутні доступні дані',
     SEARCH_PLACEHOLDER: 'Пошук...',
   },
+  LAYOUT: {
+    FOOTER_TITLE: 'Copyright BFA 2023',
+    FOOTER_SUBTITLE: 'All Rights Reserved',
+  },
   CLIENTS: {
     PAGE_TITLE: 'Клієнти',
     PAGE_SUBTITLE: 'управляй своїми клієнтами',
