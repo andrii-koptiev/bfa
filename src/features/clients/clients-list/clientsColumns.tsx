@@ -1,11 +1,6 @@
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
-import {
-  GridActionsCellItem,
-  GridColDef,
-  GridFilterOperator,
-  getGridStringOperators
-} from "@mui/x-data-grid";
+import { getGridStringOperators, GridActionsCellItem, GridColDef, GridFilterOperator } from "@mui/x-data-grid";
 
 import { ClientMappedInterface } from "../../../interfaces";
 import ClientsLinkColumn from "./ClientsLinkColumn";
@@ -18,40 +13,38 @@ type ClientsColumnsArgs = {
 };
 
 export const clientsColumns = ({
-                                 onEditItem,
-                                 onDeleteItem,
-                                 state,
-                                 removeStringOperator
-                               }: ClientsColumnsArgs): GridColDef<ClientMappedInterface>[] => {
+  onEditItem,
+  onDeleteItem,
+  state,
+  removeStringOperator,
+}: ClientsColumnsArgs): GridColDef<ClientMappedInterface>[] => {
   const filterOperators = removeStringOperator
-    ? removeStringOperator(["isAnyOf", "isEmpty", "isNotEmpty"])
+    ? removeStringOperator(['isAnyOf', 'isEmpty', 'isNotEmpty'])
     : getGridStringOperators();
 
   return [
     {
-      field: "name",
-      headerName: "Імʼя",
+      field: 'name',
+      headerName: 'Імʼя',
       flex: 1,
       renderCell: ({ row }) => (
-        <ClientsLinkColumn row={row} route={"/aaa"} state={state} />
+        <ClientsLinkColumn row={row} route={'/aaa'} state={state} />
       ),
-      filterOperators
+      filterOperators,
     },
     {
-      field: "phone",
-      headerName: "Телефон",
+      field: 'phone',
+      headerName: 'Телефон',
       flex: 1,
       filterOperators,
-      valueGetter: ({ row }) => row.phone
+      valueGetter: ({ row }) => row.phone,
     },
     {
-      field: "city",
-      headerName: "Місто",
-      valueGetter: ({ row }) => row.city,
+      field: "city","phone"headerName: "Місто","Телефон"lueGetter: ({ row }) => row.city,
       filterOperators,
-      flex: 1
+      flex: 1,
     },
-    {
+   {
       field: "actions",
       type: "actions",
       getActions: ({ row }) => [
@@ -73,7 +66,7 @@ export const clientsColumns = ({
           }}
           label={"sss"}
         />
-      ]
-    }
+      ],
+    },
   ];
 };

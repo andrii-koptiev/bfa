@@ -1,6 +1,5 @@
-import { getGridStringOperators } from "@mui/x-data-grid";
-import { useCallback } from "react";
-
+import { getGridStringOperators } from '@mui/x-data-grid';
+import { useCallback } from 'react';
 
 export const useDataGridFilter = () => {
   const removeStringOperator = useCallback((operatorToRemove: string[]) => {

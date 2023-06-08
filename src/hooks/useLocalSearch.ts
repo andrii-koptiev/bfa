@@ -3,9 +3,9 @@ import { useCallback, useEffect, useState } from "react";
 
 export const useLocalSearch = <RowType extends { [key: string]: any }>(
   data: RowType[],
-  searchKeys?: string[]
+  searchKeys?: string[],
 ) => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [searchResult, setSearchResult] = useState<RowType[]>([]);
   // State controls input focus for GridFilterBarShared if user searched in grid
   const [isInputTouched, setIsInputTouched] = useState(false);
@@ -34,7 +34,7 @@ export const useLocalSearch = <RowType extends { [key: string]: any }>(
 
       return matches.length > 0;
     },
-    []
+    [,
   );
 
   const searchItems = useCallback(() => {

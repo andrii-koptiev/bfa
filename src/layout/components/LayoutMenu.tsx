@@ -1,8 +1,4 @@
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {
-  Divider,
-  IconButton,
   List,
   ListItem,
   ListItemButton,
@@ -48,7 +44,7 @@ const Drawer = styled(MuiDrawer, {
   whiteSpace: 'nowrap',
   boxSizing: 'border-box',
   '& .MuiPaper-root.MuiDrawer-paper': {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.grey[100],
   },
   ...(open && {
     ...openedMixin(theme),
@@ -60,26 +56,22 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-type MenuProps = {
+type Props = {
   isMenuOpened: boolean;
-  onClose: () => void;
 };
 
-export const LayoutMenu: FC<MenuProps> = ({ isMenuOpened, onClose }) => {
-  const theme = useTheme();
+export const LayoutMenu: FC<Props> = ({ isMenuOpened }) => {
+  const { palette } = useTheme();
+
+  const styles = {
+    list: {
+      paddingTop: '16px',
+    },
+  };
   return (
     <Drawer variant='permanent' open={isMenuOpened}>
-      <DrawerHeader>
-        <IconButton onClick={onClose}>
-          {theme.direction === 'rtl' ? (
-            <ChevronRightIcon />
-          ) : (
-            <ChevronLeftIcon />
-          )}
-        </IconButton>
-      </DrawerHeader>
-      <Divider />
-      <List>
+      <DrawerHeader />
+      <List sx={styles.list}>
         {menuData.map((item) => (
           <ListItem key={item.id} disablePadding sx={{ display: 'block' }}>
             <ListItemButton

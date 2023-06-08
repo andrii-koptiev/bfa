@@ -6,21 +6,21 @@ export const TEXT_LOGIN = {
 
 export const TEXT_CONSTANTS = {
   COMMON: {
-    EMPTY_DATA_GRID: "Відсутні доступні дані",
-    SEARCH_PLACEHOLDER: "Пошук..."
+    EMPTY_DATA_GRID: 'Відсутні доступні дані',
+    SEARCH_PLACEHOLDER: 'Пошук...',
   },
   CLIENTS: {
-    PAGE_TITLE: "Клієнти",
-    PAGE_SUBTITLE: "управляй своїми клієнтами",
-    ADD_BUTTON: "Додати клієнта",
-    SEARCH_PLACEHOLDER: "Пошук за іменем та телефоном..."
-  }
+    PAGE_TITLE: 'Клієнти',
+    PAGE_SUBTITLE: 'управляй своїми клієнтами',
+    ADD_BUTTON: 'Додати клієнта',
+    SEARCH_PLACEHOLDER: 'Пошук за іменем та телефоном...',
+  },
 };
 
 // STYLES
 export const STYLES_CONSTANTS = {
-  DRAWER_WIDTH: "240px",
-  INPUT_MIN_HEIGHT: "72px"
+  DRAWER_WIDT"240px"px',
+  INPUT_MIN_HEIGH"72px"x',
 };
 
 // Api

@@ -1,10 +1,10 @@
-import { GridColDef, GridPaginationModel } from "@mui/x-data-grid";
-import { FC, memo } from "react";
+import { GridColDef, GridPaginationModel } from '@mui/x-data-grid';
+import { FC, memo } from 'react';
 
-import { TEXT_CONSTANTS } from "../utils";
-import PaginationCommon from "./PaginationCommon";
-import SearchCommon from "./SearchCommon";
-import { DataGridStyled } from "./styled";
+import { TEXT_CONSTANTS } from '../utils';
+import PaginationCommon from './PaginationCommon';
+import SearchCommon from './SearchCommon';
+import { DataGridStyled } from './styled';
 
 type Props = {
   columns: GridColDef[];
@@ -22,19 +22,19 @@ type Props = {
 };
 
 const DataGridCommon: FC<Props> = ({
-                                     columns,
-                                     rows,
-                                     pageSizeOptions = [10],
-                                     paginationModel = { pageSize: 10, page: 0 },
-                                     disableColumnSelector = true,
-                                     disableRowSelectionOnClick = true,
-                                     checkboxSelection = false,
-                                     onSearch,
-                                     searchPlaceholder,
-                                     searchQuery = "",
-                                     isInputTouched = false,
-                                     onInputTouched
-                                   }) => {
+  columns,
+  rows,
+  pageSizeOptions = [10],
+  paginationModel = { pageSize: 10, page: 0 },
+  disableColumnSelector = true,
+  disableRowSelectionOnClick = true,
+  checkboxSelection = false,
+  onSearch,
+  searchPlaceholder,
+  searchQuery = '',
+  isInputTouched = false,
+  onInputTouched,
+}) => {
   return (
     <DataGridStyled
       autoHeight={true}
@@ -52,13 +52,13 @@ const DataGridCommon: FC<Props> = ({
               onInputTouched={onInputTouched}
             />
           ) : null,
-        pagination: PaginationCommon
+        pagination: PaginationCommon,
       }}
       initialState={{
         pagination: { paginationModel },
         sorting: {
-          sortModel: [{ field: "updatedAt", sort: "desc" }]
-        }
+          sortModel: [{ field: 'updatedAt', sort: 'desc' }],
+        },
       }}
       disableColumnSelector={disableColumnSelector}
       pageSizeOptions={pageSizeOptions}
