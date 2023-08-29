@@ -1,0 +1,16 @@
+{
+  "clients_menu": "Clients",
+  "orders_menu": "Orders",
+  "payments_menu": "Payments",
+  "reports_menu": "Reports",
+  "clients_title": "Clients",
+  "manage_clients_subtitle": "manage your clients",
+  "add_client_button": "Add Client",
+  "grid_name_column": "Name",
+  "grid_phone_column": "Phone",
+  "grid_city_column": "City",
+  "clients_search_placeholder": "Search by name or phone...",
+  "empty_data_grid": "No available data",
+  "ua_menu_language_name": "Ukrainian",
+  "en_menu_language_name": "English"
+}

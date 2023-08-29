@@ -1,0 +1,16 @@
+{
+  "clients_menu": "Клієнти",
+  "orders_menu": "Замовлення",
+  "payments_menu": "Платежі",
+  "reports_menu": "Звіти",
+  "clients_title": "Клієнти",
+  "manage_clients_subtitle": "управляй своїми клієнтами",
+  "add_client_button": "Додати Клієнта",
+  "grid_name_column": "Імʼя",
+  "grid_phone_column": "Телефон",
+  "grid_city_column": "Місто",
+  "clients_search_placeholder": "Пошук за іменем або телефоном...",
+  "empty_data_grid": "Відсутні доступні дані",
+  "ua_menu_language_name": "Українська",
+  "en_menu_language_name": "Англійська"
+}

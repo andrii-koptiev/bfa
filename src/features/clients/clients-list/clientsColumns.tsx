@@ -6,6 +6,7 @@ import {
   GridFilterOperator,
   getGridStringOperators,
 } from '@mui/x-data-grid';
+import { TFunction } from 'i18next';
 
 import { ClientMappedInterface } from '../../../interfaces';
 import ClientsLinkColumn from './ClientsLinkColumn';
@@ -15,6 +16,7 @@ type ClientsColumnsArgs = {
   onDeleteItem: (item: ClientMappedInterface) => void;
   state: any;
   removeStringOperator?: (operator: string[]) => GridFilterOperator[];
+  t: TFunction<any>;
 };
 
 export const clientsColumns = ({
@@ -22,6 +24,7 @@ export const clientsColumns = ({
   onDeleteItem,
   state,
   removeStringOperator,
+  t,
 }: ClientsColumnsArgs): GridColDef<ClientMappedInterface>[] => {
   const filterOperators = removeStringOperator
     ? removeStringOperator(['isAnyOf', 'isEmpty', 'isNotEmpty'])
@@ -30,7 +33,7 @@ export const clientsColumns = ({
   return [
     {
       field: 'name',
-      headerName: 'Імʼя',
+      headerName: t('grid_name_column'),
       flex: 1,
       renderCell: ({ row }) => (
         <ClientsLinkColumn row={row} route={'/aaa'} state={state} />
@@ -39,19 +42,19 @@ export const clientsColumns = ({
     },
     {
       field: 'phone',
-      headerName: 'Телефон',
+      headerName: t('grid_phone_column'),
       flex: 1,
       filterOperators,
       valueGetter: ({ row }) => row.phone,
     },
     {
       field: 'city',
-      headerName: 'Місто',
+      headerName: t('grid_city_column'),
       filterOperators,
       flex: 1,
     },
     {
-      field: 'ations',
+      field: 'actions',
       type: 'actions',
       getActions: ({ row }) => [
         <GridActionsCellItem

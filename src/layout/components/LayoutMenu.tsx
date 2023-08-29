@@ -1,4 +1,5 @@
 import {
+  Divider,
   List,
   ListItem,
   ListItemButton,
@@ -7,11 +8,13 @@ import {
   useTheme,
 } from '@mui/material';
 import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink, generatePath } from 'react-router-dom';
 
+import { languagesMenuData } from '../../utils/languagesMenuData';
 import { menuData } from '../../utils/menuData';
-import { DrawerHeader } from './DrawerHeader';
-import { DrawerStyled } from './styled';
+import { useToggleTranslation } from '../hooks';
+import { DrawerHeader, DrawerStyled } from './styled';
 
 type Props = {
   isMenuOpened: boolean;
@@ -19,6 +22,8 @@ type Props = {
 
 export const LayoutMenu: FC<Props> = ({ isMenuOpened }) => {
   const { palette } = useTheme();
+  const { t } = useTranslation();
+  const { handleToggleLanguage, activeLng } = useToggleTranslation();
 
   const styles = {
     list: {
@@ -39,10 +44,15 @@ export const LayoutMenu: FC<Props> = ({ isMenuOpened }) => {
       mr: isMenuOpened ? 3 : 'auto',
       justifyContent: 'center',
       color: 'inherit',
+      width: '24px',
+      height: '24px',
     },
     itemText: {
       color: 'inherit',
       opacity: isMenuOpened ? 1 : 0,
+    },
+    nonActiveLng: {
+      opacity: 0.3,
     },
   };
 
@@ -58,7 +68,25 @@ export const LayoutMenu: FC<Props> = ({ isMenuOpened }) => {
               to={generatePath(item.route)}
             >
               <ListItemIcon sx={styles.itemIcon}>{<item.icon />}</ListItemIcon>
-              <ListItemText primary={item.name} sx={styles.itemText} />
+              <ListItemText primary={t(item.keyName)} sx={styles.itemText} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List sx={styles.list}>
+        {languagesMenuData.map((item) => (
+          <ListItem key={item.id} disablePadding sx={{ display: 'block' }}>
+            <ListItemButton
+              sx={
+                activeLng === item.id
+                  ? styles.itemButton
+                  : { ...styles.itemButton, ...styles.nonActiveLng }
+              }
+              onClick={() => handleToggleLanguage(item.id)}
+            >
+              <ListItemIcon sx={styles.itemIcon}>{<item.icon />}</ListItemIcon>
+              <ListItemText primary={t(item.keyName)} sx={styles.itemText} />
             </ListItemButton>
           </ListItem>
         ))}

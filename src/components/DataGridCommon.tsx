@@ -1,7 +1,7 @@
 import { GridColDef, GridPaginationModel } from '@mui/x-data-grid';
 import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { TEXT_CONSTANTS } from '../utils';
 import PaginationCommon from './PaginationCommon';
 import SearchCommon from './SearchCommon';
 import { DataGridStyled } from './styled';
@@ -35,6 +35,7 @@ const DataGridCommon: FC<Props> = ({
   isInputTouched = false,
   onInputTouched,
 }) => {
+  const { t } = useTranslation();
   return (
     <DataGridStyled
       autoHeight={true}
@@ -64,7 +65,7 @@ const DataGridCommon: FC<Props> = ({
       pageSizeOptions={pageSizeOptions}
       disableRowSelectionOnClick={disableRowSelectionOnClick}
       checkboxSelection={checkboxSelection}
-      localeText={{ noRowsLabel: TEXT_CONSTANTS.COMMON.EMPTY_DATA_GRID }}
+      localeText={{ noRowsLabel: t('empty_data_grid') }}
       disableColumnMenu
     />
   );
