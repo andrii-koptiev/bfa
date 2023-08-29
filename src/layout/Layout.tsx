@@ -5,10 +5,10 @@ import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { STYLES_CONSTANTS } from '../utils';
-import { DrawerHeader } from './components/DrawerHeader';
 import FooterLayout from './components/FooterLayout';
 import LayoutHeader from './components/LayoutHeader';
 import LayoutMenu from './components/LayoutMenu';
+import { DrawerHeader } from './components/styled/DrawerHeader';
 import { useDrawerLayout } from './hooks';
 
 export const Layout: FC = () => {

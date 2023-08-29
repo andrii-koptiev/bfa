@@ -9,6 +9,7 @@ import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 interface LinkCommonProps extends LinkBaseProps {
+  children: string;
   state?: any;
   external?: boolean;
   variant?: TypographyProps['variant'];

@@ -6,18 +6,11 @@ export const TEXT_LOGIN = {
 
 export const TEXT_CONSTANTS = {
   COMMON: {
-    EMPTY_DATA_GRID: 'Відсутні доступні дані',
     SEARCH_PLACEHOLDER: 'Пошук...',
   },
   LAYOUT: {
     FOOTER_TITLE: 'Copyright BFA 2023',
     FOOTER_SUBTITLE: 'All Rights Reserved',
-  },
-  CLIENTS: {
-    PAGE_TITLE: 'Клієнти',
-    PAGE_SUBTITLE: 'управляй своїми клієнтами',
-    ADD_BUTTON: 'Додати клієнта',
-    SEARCH_PLACEHOLDER: 'Пошук за іменем та телефоном...',
   },
 };
 

@@ -8,24 +8,24 @@ import { ROUTES } from '../navigation/constants';
 export const menuData = [
   {
     id: 1,
-    name: 'Клієнти',
+    keyName: 'clients',
     route: ROUTES.CLIENTS,
     icon: GroupOutlinedIcon,
   },
   {
-    name: 'Замовлення',
+    keyName: 'orders',
     icon: ShoppingCartIcon,
     route: '',
     id: 2,
   },
   {
-    name: 'Оплати',
+    keyName: 'payments',
     icon: AttachMoneyIcon,
     route: '',
     id: 3,
   },
   {
-    name: 'Звіти',
+    keyName: 'reports',
     icon: SummarizeIcon,
     route: '',
     id: 4,

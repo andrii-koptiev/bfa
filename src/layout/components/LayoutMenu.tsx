@@ -7,11 +7,11 @@ import {
   useTheme,
 } from '@mui/material';
 import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink, generatePath } from 'react-router-dom';
 
 import { menuData } from '../../utils/menuData';
-import { DrawerHeader } from './DrawerHeader';
-import { DrawerStyled } from './styled';
+import { DrawerHeader, DrawerStyled } from './styled';
 
 type Props = {
   isMenuOpened: boolean;
@@ -19,6 +19,7 @@ type Props = {
 
 export const LayoutMenu: FC<Props> = ({ isMenuOpened }) => {
   const { palette } = useTheme();
+  const { t } = useTranslation();
 
   const styles = {
     list: {
@@ -58,7 +59,7 @@ export const LayoutMenu: FC<Props> = ({ isMenuOpened }) => {
               to={generatePath(item.route)}
             >
               <ListItemIcon sx={styles.itemIcon}>{<item.icon />}</ListItemIcon>
-              <ListItemText primary={item.name} sx={styles.itemText} />
+              <ListItemText primary={t(item.keyName)} sx={styles.itemText} />
             </ListItemButton>
           </ListItem>
         ))}

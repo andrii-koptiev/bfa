@@ -1,10 +1,10 @@
 import React, { FC, memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
 import DataGridCommon from '../../../components/DataGridCommon';
 import { useDataGridFilter, useLocalSearch } from '../../../hooks';
 import { ClientMappedInterface } from '../../../interfaces';
-import { TEXT_CONSTANTS } from '../../../utils';
 import { clientsColumns } from './clientsColumns';
 
 type Props = {
@@ -23,10 +23,9 @@ const ClientsList: FC<Props> = ({ items, onDeleteItem, onEditItem }) => {
     isInputTouched,
     setIsInputTouched,
   } = useLocalSearch<ClientMappedInterface>(items, searchByKeys);
-
   const { removeStringOperator } = useDataGridFilter();
-
   const { state } = useLocation();
+  const { t } = useTranslation();
 
   const columns = useMemo(() => {
     return clientsColumns({
@@ -49,7 +48,7 @@ const ClientsList: FC<Props> = ({ items, onDeleteItem, onEditItem }) => {
       rows={searchQuery ? searchResult : items}
       columns={columns}
       onSearch={handleSearch}
-      searchPlaceholder={TEXT_CONSTANTS.CLIENTS.SEARCH_PLACEHOLDER}
+      searchPlaceholder={t('clients_search_placeholder')}
       searchQuery={searchQuery}
       isInputTouched={isInputTouched}
       onInputTouched={setIsInputTouched}

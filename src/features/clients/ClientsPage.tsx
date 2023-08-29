@@ -1,16 +1,17 @@
 import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
 import { FC, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import ButtonCommon from '../../components/ButtonCommon';
 import PageCardCommon from '../../components/PageCardCommon';
 import { useAppDispatch } from '../../store';
 import { selectAllClients } from '../../store/models/clients/selectors';
-import { TEXT_CONSTANTS } from '../../utils';
 import ClientsList from './clients-list/ClientsList';
 
 const ClientsPage: FC = () => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const clients = useSelector(selectAllClients);
   useEffect(() => {
@@ -19,11 +20,11 @@ const ClientsPage: FC = () => {
 
   return (
     <PageCardCommon
-      title={TEXT_CONSTANTS.CLIENTS.PAGE_TITLE}
-      subtitle={TEXT_CONSTANTS.CLIENTS.PAGE_SUBTITLE}
+      title={t('clients_title')}
+      subtitle={t('manage_clients_subtitle')}
       buttonElement={
         <ButtonCommon
-          children={TEXT_CONSTANTS.CLIENTS.ADD_BUTTON}
+          children={t('add_client_button')}
           variant='contained'
           startIcon={<PersonAddAlt1OutlinedIcon />}
         />
