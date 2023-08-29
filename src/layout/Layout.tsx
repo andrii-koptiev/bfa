@@ -8,7 +8,7 @@ import { STYLES_CONSTANTS } from '../utils';
 import FooterLayout from './components/FooterLayout';
 import LayoutHeader from './components/LayoutHeader';
 import LayoutMenu from './components/LayoutMenu';
-import { DrawerHeader } from './components/styled/DrawerHeader';
+import { DrawerHeader } from './components/styled';
 import { useDrawerLayout } from './hooks';
 
 export const Layout: FC = () => {

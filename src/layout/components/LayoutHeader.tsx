@@ -4,7 +4,6 @@ import MuiAppBar from '@mui/material/AppBar';
 import { FC, memo } from 'react';
 
 import Login from '../../features/login/Login';
-import LayoutTranslationToggle from './LayoutTranslationToggle';
 
 type Props = {
   onMenuToggle: () => void;
@@ -35,9 +34,6 @@ const LayoutHeader: FC<Props> = ({ onMenuToggle }) => {
           <Typography variant='h6' noWrap component='div'>
             Mini variant drawer
           </Typography>
-        </Box>
-        <Box mr='12px'>
-          <LayoutTranslationToggle />
         </Box>
         <Login />
       </Toolbar>

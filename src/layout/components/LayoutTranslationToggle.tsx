@@ -6,6 +6,7 @@ export const LayoutTranslationToggle: FC = () => {
   const styles = {
     container: {
       display: 'flex',
+      flexDirection: 'column',
       gap: '8px',
     },
     iconButton: {

@@ -17,7 +17,7 @@ export const TEXT_CONSTANTS = {
 // STYLES
 export const STYLES_CONSTANTS = {
   DRAWER_WIDTH: '240px',
-  INPUT_MIN_HEIGH: '72px',
+  INPUT_MIN_HEIGHT: '72px',
 };
 
 // Api

@@ -1,4 +1,5 @@
 import {
+  Divider,
   List,
   ListItem,
   ListItemButton,
@@ -11,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink, generatePath } from 'react-router-dom';
 
 import { menuData } from '../../utils/menuData';
+import LayoutTranslationToggle from './LayoutTranslationToggle';
 import { DrawerHeader, DrawerStyled } from './styled';
 
 type Props = {
@@ -64,6 +66,8 @@ export const LayoutMenu: FC<Props> = ({ isMenuOpened }) => {
           </ListItem>
         ))}
       </List>
+      <Divider />
+      <LayoutTranslationToggle />
     </DrawerStyled>
   );
 };

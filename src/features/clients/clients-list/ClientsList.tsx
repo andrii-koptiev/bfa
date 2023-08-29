@@ -33,8 +33,9 @@ const ClientsList: FC<Props> = ({ items, onDeleteItem, onEditItem }) => {
       onDeleteItem,
       state,
       removeStringOperator,
+      t,
     });
-  }, [onEditItem, onDeleteItem, state, removeStringOperator]);
+  }, [onEditItem, onDeleteItem, state, removeStringOperator, t]);
 
   const handleSearch = useCallback(
     (value: string) => {
