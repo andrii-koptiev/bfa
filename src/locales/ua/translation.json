@@ -12,5 +12,7 @@
   "clients_search_placeholder": "Пошук за іменем або телефоном...",
   "empty_data_grid": "Відсутні доступні дані",
   "ua_menu_language_name": "Українська",
-  "en_menu_language_name": "Англійська"
+  "en_menu_language_name": "Англійська",
+  "add_client_form_title": "Додати нового клієнта",
+  "add_client_form_subtitle": "* обов'язково заповнити"
 }

@@ -12,5 +12,7 @@
   "clients_search_placeholder": "Search by name or phone...",
   "empty_data_grid": "No available data",
   "ua_menu_language_name": "Ukrainian",
-  "en_menu_language_name": "English"
+  "en_menu_language_name": "English",
+  "add_client_form_title": "Add new client",
+  "add_client_form_subtitle": "* indicates required"
 }

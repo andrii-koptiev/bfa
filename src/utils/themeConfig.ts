@@ -76,12 +76,16 @@ export const theme = createTheme({
       fontSize: '32px',
       fontWeight: 500,
     },
-    h5: {
-      fontSize: '13px',
+    h4: {
+      fontSize: '14px',
       fontWeight: 500,
     },
     subtitle1: {
       fontSize: '16px',
+      fontWeight: 300,
+    },
+    subtitle2: {
+      fontSize: '13px',
       fontWeight: 300,
     },
   },

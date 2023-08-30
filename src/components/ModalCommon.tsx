@@ -1,20 +1,14 @@
 import { Backdrop, Box, Fade, Modal } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  content: JSX.Element | null;
-  icon?: JSX.Element | null;
+  content: ReactNode | null;
 };
 
-const ModalCommon: FC<Props> = ({
-  isOpen,
-  onClose,
-  content = null,
-  icon = null,
-}) => {
+const ModalCommon: FC<Props> = ({ isOpen, onClose, content = null }) => {
   const { palette, zIndex, shape } = useTheme();
 
   const style = {
@@ -23,7 +17,7 @@ const ModalCommon: FC<Props> = ({
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      width: 'max-content',
+      width: '40%',
       height: 'max-content',
       bgcolor: 'background.paper',
       border: '1px solid' + palette.divider,
@@ -54,7 +48,6 @@ const ModalCommon: FC<Props> = ({
     >
       <Fade in={isOpen}>
         <Box sx={style.contentContainer} data-testid='modal-common-content'>
-          {icon}
           {content}
         </Box>
       </Fade>

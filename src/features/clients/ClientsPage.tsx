@@ -10,6 +10,7 @@ import { useModal } from '../../hooks';
 import { useAppDispatch } from '../../store';
 import { selectAllClients } from '../../store/models/clients/selectors';
 import ClientsList from './clients-list/ClientsList';
+import AddEditClientForm from './manage-clients/AddEditClientForm';
 
 const ClientsPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -42,7 +43,11 @@ const ClientsPage: FC = () => {
           />
         }
       />
-      <ModalCommon isOpen={isOpen} onClose={onClose} content={null} />
+      <ModalCommon
+        isOpen={isOpen}
+        onClose={onClose}
+        content={<AddEditClientForm />}
+      />
     </>
   );
 };
