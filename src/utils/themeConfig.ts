@@ -91,5 +91,6 @@ export const theme = createTheme({
   zIndex: {
     drawer: 1100,
     appBar: 1200,
+    modal: 1700,
   },
 });
