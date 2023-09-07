@@ -10,7 +10,7 @@ const FormsHeaderCommon: FC<Props> = ({ title, subtitle }) => {
   return (
     <Box display='flex' flexDirection='column' gap='4px'>
       <Typography
-        variant='h4'
+        variant='h3'
         children={title}
         data-testid='forms-header-common-title'
       />

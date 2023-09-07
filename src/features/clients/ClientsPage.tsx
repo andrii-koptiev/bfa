@@ -46,7 +46,9 @@ const ClientsPage: FC = () => {
       <ModalCommon
         isOpen={isOpen}
         onClose={onClose}
-        content={<AddEditClientForm />}
+        content={
+          <AddEditClientForm clientsList={clients} onSubmitForm={() => {}} />
+        }
       />
     </>
   );

@@ -17,14 +17,14 @@ interface StyledTextFieldProps
 export const InputStyled = styled(TextField)<StyledTextFieldProps>(
   ({ theme }): CSSObject => ({
     '& .MuiInputBase-input': {
-      padding: '8px',
+      padding: '12px',
       borderRadius: theme.shape.borderRadius,
       fontSize: '14px',
     },
     '& .MuiFormLabel-root': {
       color: theme.palette.common.black,
       fontWeight: theme.typography.fontWeightLight,
-      fontSize: 14,
+      fontSize: '12px',
     },
     '& fieldset': {
       borderRadius: theme.shape.borderRadius,

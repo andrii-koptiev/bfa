@@ -14,5 +14,12 @@
   "ua_menu_language_name": "Українська",
   "en_menu_language_name": "Англійська",
   "add_client_form_title": "Додати нового клієнта",
-  "add_client_form_subtitle": "* обов'язково заповнити"
+  "add_client_form_subtitle": "* обов'язково заповнити",
+  "add_client_form_name_label": "Імʼя та прізвищє",
+  "add_client_form_phone_label": "Телефон",
+  "add_client_form_name_format_error_message": "повинно бути повним, наприклад Леся Українка",
+  "add_client_form_name_unique_error_message": "Ця людина вже присутня у вашій базі",
+  "add_client_form_phone_format_error_message": "має бути у коректному форматі, наприклад 0931234567",
+  "add_client_form_phone_unique_error_message": "Цей номер вже присутній у вашій базі"
+
 }
