@@ -5,11 +5,12 @@ import ModalFormCommon from '../../../components/ModalFormCommon';
 import { InputStyled } from '../../../components/styled';
 import { useFormValidation } from '../../../hooks';
 import { ClientMappedInterface } from '../../../interfaces';
+import { useAddEditClientFormValidation } from '../hooks';
 import { AddEditClientFormValuesInterface } from '../interfaces';
-import { useAddEditClientFormValidationSchema } from './add-edit-client-form-validation-schema';
 
 type Props = {
   onSubmitForm: (values: AddEditClientFormValuesInterface) => void;
+  onCancel: () => void;
   clientsList: ClientMappedInterface[];
   client?: ClientMappedInterface;
 };
@@ -17,11 +18,13 @@ type Props = {
 const AddEditClientForm: FC<Props> = ({
   client,
   onSubmitForm,
+  onCancel,
   clientsList,
 }) => {
   const { t } = useTranslation();
   const nameInputLabel = t('add_client_form_name_label');
   const phoneInputLabel = t('add_client_form_phone_label');
+  const cityInputLabel = t('add_client_form_city_label');
   const { values, handleChange, handleSubmit, errors, isAllInputsValid } =
     useFormValidation<AddEditClientFormValuesInterface>({
       initialValues: {
@@ -29,11 +32,12 @@ const AddEditClientForm: FC<Props> = ({
         phone: client?.phone ?? '',
         city: client?.city ?? '',
       },
-      validationSchema: useAddEditClientFormValidationSchema({
+      validationSchema: useAddEditClientFormValidation({
         client: client || null,
         clientsList,
         nameLabel: nameInputLabel,
         phoneLabel: phoneInputLabel,
+        cityLabel: cityInputLabel,
       }),
       validateOnChange: true,
       onSubmit: (values) => onSubmitForm(values),
@@ -42,6 +46,11 @@ const AddEditClientForm: FC<Props> = ({
     <ModalFormCommon
       title={t('add_client_form_title')}
       subtitle={t('add_client_form_subtitle')}
+      confirmButtonText={t('common_add')}
+      cancelButtonText={t('common_cancel')}
+      onSubmitForm={handleSubmit}
+      onCancel={onCancel}
+      isSubmitDisabled={!isAllInputsValid}
     >
       <InputStyled
         label={nameInputLabel}
@@ -59,6 +68,15 @@ const AddEditClientForm: FC<Props> = ({
         onChange={handleChange}
         error={!!errors.phone}
         helperText={errors.phone}
+        required
+      />
+      <InputStyled
+        label={cityInputLabel}
+        name='city'
+        value={values.city}
+        onChange={handleChange}
+        error={!!errors.city}
+        helperText={errors.city}
         required
       />
     </ModalFormCommon>

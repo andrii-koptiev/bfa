@@ -5,10 +5,12 @@ import { object, string } from 'yup';
 import { LanguagesEnum } from '../../../enums';
 import { ClientMappedInterface } from '../../../interfaces';
 import {
+  clientCityFormatRegExpEn,
+  clientCityFormatRegExpUa,
   clientNameFormatRegExpEn,
   clientNameFormatRegExpUa,
+  clientPhoneFormatRegExpUa,
   inputUniqueValidation,
-  phoneFormatRegExpUa,
 } from '../../../utils';
 
 type AddEditClientValidationFormData = {
@@ -16,25 +18,32 @@ type AddEditClientValidationFormData = {
   clientsList: ClientMappedInterface[];
   nameLabel: string;
   phoneLabel: string;
+  cityLabel: string;
 };
 
-export const useAddEditClientFormValidationSchema = ({
+export const useAddEditClientFormValidation = ({
   client,
   clientsList,
   nameLabel,
   phoneLabel,
+  cityLabel,
 }: AddEditClientValidationFormData) => {
   const { t, i18n } = useTranslation();
   const [nameFormatLng, setNameFormatLng] = useState<RegExp>(
     clientNameFormatRegExpEn,
   );
+  const [cityFormatLng, setCityFormatLng] = useState<RegExp>(
+    clientCityFormatRegExpEn,
+  );
   useEffect(() => {
     switch (i18n.language) {
       case LanguagesEnum.EN:
         setNameFormatLng(clientNameFormatRegExpEn);
+        setCityFormatLng(clientCityFormatRegExpEn);
         break;
       case LanguagesEnum.UA:
         setNameFormatLng(clientNameFormatRegExpUa);
+        setCityFormatLng(clientCityFormatRegExpUa);
         break;
       default:
         setNameFormatLng(clientNameFormatRegExpEn);
@@ -70,7 +79,7 @@ export const useAddEditClientFormValidationSchema = ({
       .strict(true)
       .trim()
       .matches(
-        phoneFormatRegExpUa,
+        clientPhoneFormatRegExpUa,
         ({ label }) =>
           `${label} ${t('add_client_form_phone_format_error_message')}`,
       )
@@ -85,6 +94,17 @@ export const useAddEditClientFormValidationSchema = ({
             fieldName: 'phone',
           });
         },
+      )
+      .required('Required'),
+
+    city: string()
+      .label(cityLabel)
+      .strict(true)
+      .trim()
+      .matches(
+        cityFormatLng,
+        ({ label }) =>
+          `${label} ${t('add_client_form_city_format_error_message')}`,
       )
       .required('Required'),
   });

@@ -23,7 +23,7 @@ export const clientsModel = createModel<RootModel>()({
     async createClient(payload: CreateClientPayloadInterface) {
       await createClient(payload).catch(
         (e: AxiosError<{ message: string[] }>) => {
-          throw new Error(e.response?.data.message.join());
+          throw new Error(e.message);
         },
       );
 

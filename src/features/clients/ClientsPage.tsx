@@ -3,19 +3,24 @@ import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
+import AlertCommon from '../../components/AlertCommon';
 import ButtonCommon from '../../components/ButtonCommon';
 import ModalCommon from '../../components/ModalCommon';
 import PageCardCommon from '../../components/PageCardCommon';
-import { useModal } from '../../hooks';
+import { useAlert } from '../../hooks';
 import { useAppDispatch } from '../../store';
 import { selectAllClients } from '../../store/models/clients/selectors';
 import ClientsList from './clients-list/ClientsList';
+import { useAddClient } from './hooks';
 import AddEditClientForm from './manage-clients/AddEditClientForm';
 
 const ClientsPage: FC = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const { onOpen, isOpen, onClose } = useModal();
+
+  const { isAlertOpen, onOpenAlert } = useAlert();
+
+  const addClientContext = useAddClient(onOpenAlert);
 
   const clients = useSelector(selectAllClients);
   useEffect(() => {
@@ -32,7 +37,7 @@ const ClientsPage: FC = () => {
             children={t('add_client_button')}
             variant='contained'
             startIcon={<PersonAddAlt1OutlinedIcon />}
-            onClick={onOpen}
+            onClick={addClientContext.modal.onOpen}
           />
         }
         contentElement={
@@ -44,12 +49,19 @@ const ClientsPage: FC = () => {
         }
       />
       <ModalCommon
-        isOpen={isOpen}
-        onClose={onClose}
+        isOpen={addClientContext.modal.isOpen}
+        onClose={addClientContext.modal.onClose}
         content={
-          <AddEditClientForm clientsList={clients} onSubmitForm={() => {}} />
+          <AddEditClientForm
+            clientsList={clients}
+            onSubmitForm={addClientContext.handleSubmit}
+            onCancel={addClientContext.modal.onClose}
+          />
         }
       />
+      {isAlertOpen && (
+        <AlertCommon color='success' text={t('alert_success_added_client')} />
+      )}
     </>
   );
 };

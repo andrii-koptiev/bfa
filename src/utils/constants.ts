@@ -22,4 +22,6 @@ export const STYLES_CONSTANTS = {
 
 // Api
 export const BASE_URL =
-  'https://buyer-financial-accounting-default-rtdb.europe-west1.firebasedatabase.app/';
+  'https://uyer-financial-accounting-default-rtdb.europe-west1.firebasedatabase.app/';
+
+export const DATABASE_NAME = 'test';
