@@ -25,13 +25,13 @@ const FooterLayout: FC = () => {
         </Box>
         <Box mr='16px'>
           <Typography
-            variant='h5'
+            variant='h4'
             children={TEXT_CONSTANTS.LAYOUT.FOOTER_TITLE}
           />
         </Box>
 
         <Typography
-          variant='h5'
+          variant='h4'
           children={TEXT_CONSTANTS.LAYOUT.FOOTER_SUBTITLE}
         />
       </Box>

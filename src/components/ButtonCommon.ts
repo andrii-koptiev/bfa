@@ -9,7 +9,7 @@ interface ButtonProps extends MuiButtonProps {
 }
 
 const ButtonCommon = styled(Button)<ButtonProps>(
-  ({ theme, width, height = '36px', fontsize }): CSSObject => ({
+  ({ theme, width = '180px', height = '36px', fontsize }): CSSObject => ({
     width: width,
     height: height,
     textTransform: 'none',

@@ -2,7 +2,6 @@ export interface ClientWithoutIdInterface {
   name: string;
   phone: string;
   city: string;
-  updatedAt: Date;
 }
 
 export interface ClientFromApiInterface {
