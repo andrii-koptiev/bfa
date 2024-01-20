@@ -1,5 +1,5 @@
 import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -17,15 +17,18 @@ import AddEditClientForm from './manage-clients/AddEditClientForm';
 const ClientsPage: FC = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-
   const { isAlertOpen, onOpenAlert } = useAlert();
-
   const addClientContext = useAddClient(onOpenAlert);
-
   const clients = useSelector(selectAllClients);
+  const [isApiError, setIsApiError] = useState(false);
+
   useEffect(() => {
     dispatch.clients.getClients();
   }, [dispatch.clients]);
+
+  useEffect(() => {
+    addClientContext.apiError && setIsApiError(true);
+  }, [addClientContext.apiError]);
 
   return (
     <>
@@ -60,7 +63,12 @@ const ClientsPage: FC = () => {
         }
       />
       {isAlertOpen && (
-        <AlertCommon color='success' text={t('alert_success_added_client')} />
+        <AlertCommon
+          color={isApiError ? 'error' : 'success'}
+          text={
+            isApiError ? t('common_api_error') : t('alert_success_added_client')
+          }
+        />
       )}
     </>
   );

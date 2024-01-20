@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { ALERT_TIME_MS } from '../utils';
+
 export const useAlert = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
 
@@ -8,7 +10,7 @@ export const useAlert = () => {
 
     setTimeout(() => {
       onCloseAlert();
-    }, 2000);
+    }, ALERT_TIME_MS);
   };
 
   const onCloseAlert = () => {

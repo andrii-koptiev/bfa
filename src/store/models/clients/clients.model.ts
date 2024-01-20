@@ -22,7 +22,7 @@ export const clientsModel = createModel<RootModel>()({
   effects: (dispatch) => ({
     async createClient(payload: CreateClientPayloadInterface) {
       await createClient(payload).catch(
-        (e: AxiosError<{ message: string[] }>) => {
+        (e: AxiosError<{ message: string }>) => {
           throw new Error(e.message);
         },
       );
@@ -33,8 +33,8 @@ export const clientsModel = createModel<RootModel>()({
     async getClients() {
       const clients = await getClients()
         .then((res) => mapClientsFromApi(res.data))
-        .catch((e: AxiosError<{ message: string[] }>) => {
-          throw new Error(e.response?.data.message.join());
+        .catch((e: AxiosError<{ message: string }>) => {
+          throw new Error(e.message);
         });
 
       await dispatch.clients.setClients(clients);

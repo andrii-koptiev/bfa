@@ -25,3 +25,5 @@ export const BASE_URL =
   'https://uyer-financial-accounting-default-rtdb.europe-west1.firebasedatabase.app/';
 
 export const DATABASE_NAME = 'test';
+
+export const ALERT_TIME_MS = 5000;

@@ -26,5 +26,6 @@
   "common_add": "Додати",
   "common_cancel": "Відминити",
   "common_edit": "Редагувати",
-  "alert_success_added_client": "Клієнта успішно додано"
+  "alert_success_added_client": "Клієнта успішно додано",
+  "common_api_error": "Виникла помилка. Звернітся до служби підтримки або спробуйте пізніше"
 }

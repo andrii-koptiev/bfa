@@ -26,5 +26,6 @@
   "common_add": "Add",
   "common_cancel": "Cancel",
   "common_edit": "Edit",
-  "alert_success_added_client": "Client was added successfully"
+  "alert_success_added_client": "Client was added successfully",
+  "common_api_error": "An error was occurred. Please contact support or try later"
 }

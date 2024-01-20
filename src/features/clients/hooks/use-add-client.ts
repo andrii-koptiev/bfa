@@ -26,13 +26,17 @@ export const useAddClient = (onOpenAlert: () => void): AddClientReturnType => {
         },
       };
 
-      await dispatch.clients.createClient(payload);
-      try {
-        modal.onClose();
-        onOpenAlert();
-      } catch (e: any) {
-        console.log('error in hook', e);
-      }
+      await dispatch.clients
+        .createClient(payload)
+        .then(() => {
+          modal.onClose();
+          onOpenAlert();
+        })
+        .catch((e: string) => {
+          modal.onClose();
+          setApiError(e);
+          onOpenAlert();
+        });
     },
     [dispatch.clients, modal, onOpenAlert],
   );
