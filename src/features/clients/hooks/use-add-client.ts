@@ -8,17 +8,17 @@ import { AddEditClientFormValuesInterface } from '../interfaces';
 type AddClientReturnType = {
   modal: ReturnType<typeof useModal>;
   handleSubmit: (item: AddEditClientFormValuesInterface) => void;
-  apiError: string | undefined;
+  apiError: string | null;
 };
 
 export const useAddClient = (onOpenAlert: () => void): AddClientReturnType => {
   const dispatch = useAppDispatch();
   const modal = useModal();
-  const [apiError, setApiError] = useState<string>();
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const handleSubmit = useCallback(
     async (clientsData: AddEditClientFormValuesInterface) => {
-      setApiError('');
+      setApiError(null);
 
       const payload: CreateClientPayloadInterface = {
         requestBody: {

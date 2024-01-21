@@ -8,27 +8,23 @@ import ButtonCommon from '../../components/ButtonCommon';
 import ModalCommon from '../../components/ModalCommon';
 import PageCardCommon from '../../components/PageCardCommon';
 import { useAlert } from '../../hooks';
-import { useAppDispatch } from '../../store';
 import { selectAllClients } from '../../store/models/clients/selectors';
 import ClientsList from './clients-list/ClientsList';
-import { useAddClient } from './hooks';
+import { useAddClient, useGetClients } from './hooks';
 import AddEditClientForm from './manage-clients/AddEditClientForm';
 
 const ClientsPage: FC = () => {
-  const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const { isAlertOpen, onOpenAlert } = useAlert();
   const addClientContext = useAddClient(onOpenAlert);
+  const getClientsContext = useGetClients(onOpenAlert);
   const clients = useSelector(selectAllClients);
   const [isApiError, setIsApiError] = useState(false);
 
   useEffect(() => {
-    dispatch.clients.getClients();
-  }, [dispatch.clients]);
-
-  useEffect(() => {
-    addClientContext.apiError && setIsApiError(true);
-  }, [addClientContext.apiError]);
+    const hasApiError = getClientsContext.apiError || addClientContext.apiError;
+    setIsApiError(Boolean(hasApiError));
+  }, [addClientContext.apiError, getClientsContext.apiError]);
 
   return (
     <>

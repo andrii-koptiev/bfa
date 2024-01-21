@@ -4,7 +4,6 @@ import { useTheme } from '@mui/material/styles';
 import { debounce } from 'lodash';
 import { ChangeEvent, FC, memo } from 'react';
 
-import { TEXT_CONSTANTS } from '../utils';
 import { InputStyled } from './styled';
 
 type Props = {
@@ -19,7 +18,7 @@ type Props = {
 const SearchCommon: FC<Props> = ({
   onSearch,
   searchQuery,
-  searchPlaceholder = TEXT_CONSTANTS.COMMON.SEARCH_PLACEHOLDER,
+  searchPlaceholder,
   isInputTouched,
   inputWidth = '30%',
 }) => {
