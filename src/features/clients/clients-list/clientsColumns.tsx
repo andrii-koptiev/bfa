@@ -12,16 +12,16 @@ import { ClientMappedInterface } from '../../../interfaces';
 import ClientsLinkColumn from './ClientsLinkColumn';
 
 type ClientsColumnsArgs = {
-  onEditItem: (item: ClientMappedInterface) => void;
-  onDeleteItem: (item: ClientMappedInterface) => void;
+  onEditClient: (item: ClientMappedInterface) => void;
+  onDeleteClient: (item: ClientMappedInterface) => void;
   state: any;
   removeStringOperator?: (operator: string[]) => GridFilterOperator[];
   t: TFunction<any>;
 };
 
 export const clientsColumns = ({
-  onEditItem,
-  onDeleteItem,
+  onEditClient,
+  onDeleteClient,
   state,
   removeStringOperator,
   t,
@@ -61,7 +61,7 @@ export const clientsColumns = ({
           icon={<ModeEditOutlineOutlinedIcon />}
           data-testid='list-edit-button'
           onClick={(e) => {
-            onEditItem(row);
+            onEditClient(row);
             e.preventDefault();
           }}
           label='vvv'
@@ -70,7 +70,7 @@ export const clientsColumns = ({
           icon={<DeleteOutlineOutlinedIcon />}
           data-testid='list-delete-button'
           onClick={(e) => {
-            onDeleteItem(row);
+            onDeleteClient(row);
             e.preventDefault();
           }}
           label={'vvv'}

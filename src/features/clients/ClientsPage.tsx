@@ -10,7 +10,7 @@ import PageCardCommon from '../../components/PageCardCommon';
 import { useAlert } from '../../hooks';
 import { selectAllClients } from '../../store/models/clients/selectors';
 import ClientsList from './clients-list/ClientsList';
-import { useAddClient, useGetClients } from './hooks';
+import { useAddClient, useEditClient, useGetClients } from './hooks';
 import AddEditClientForm from './manage-clients/AddEditClientForm';
 
 const ClientsPage: FC = () => {
@@ -18,13 +18,21 @@ const ClientsPage: FC = () => {
   const { isAlertOpen, onOpenAlert } = useAlert();
   const addClientContext = useAddClient(onOpenAlert);
   const getClientsContext = useGetClients(onOpenAlert);
+  const editClientContext = useEditClient(onOpenAlert);
   const clients = useSelector(selectAllClients);
   const [isApiError, setIsApiError] = useState(false);
 
   useEffect(() => {
-    const hasApiError = getClientsContext.apiError || addClientContext.apiError;
+    const hasApiError =
+      getClientsContext.apiError ||
+      addClientContext.apiError ||
+      editClientContext.apiError;
     setIsApiError(Boolean(hasApiError));
-  }, [addClientContext.apiError, getClientsContext.apiError]);
+  }, [
+    addClientContext.apiError,
+    editClientContext.apiError,
+    getClientsContext.apiError,
+  ]);
 
   return (
     <>
@@ -42,8 +50,8 @@ const ClientsPage: FC = () => {
         contentElement={
           <ClientsList
             items={clients}
-            onEditItem={() => {}}
-            onDeleteItem={() => {}}
+            onEditClient={editClientContext.handleEditClient}
+            onDeleteClient={() => {}}
           />
         }
       />
@@ -55,6 +63,18 @@ const ClientsPage: FC = () => {
             clientsList={clients}
             onSubmitForm={addClientContext.handleSubmit}
             onCancel={addClientContext.modal.onClose}
+          />
+        }
+      />
+      <ModalCommon
+        isOpen={editClientContext.modal.isOpen}
+        onClose={editClientContext.modal.onClose}
+        content={
+          <AddEditClientForm
+            client={editClientContext.editedClient}
+            clientsList={clients}
+            onSubmitForm={editClientContext.handleSubmit}
+            onCancel={editClientContext.modal.onClose}
           />
         }
       />

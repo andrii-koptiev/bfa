@@ -9,11 +9,11 @@ import { clientsColumns } from './clientsColumns';
 
 type Props = {
   items: ClientMappedInterface[];
-  onEditItem: (item: ClientMappedInterface) => void;
-  onDeleteItem: (item: ClientMappedInterface) => void;
+  onEditClient: (clientData: ClientMappedInterface) => void;
+  onDeleteClient: (clientData: ClientMappedInterface) => void;
 };
 
-const ClientsList: FC<Props> = ({ items, onDeleteItem, onEditItem }) => {
+const ClientsList: FC<Props> = ({ items, onEditClient, onDeleteClient }) => {
   const searchByKeys = ['name', 'phone'];
 
   const {
@@ -29,13 +29,13 @@ const ClientsList: FC<Props> = ({ items, onDeleteItem, onEditItem }) => {
 
   const columns = useMemo(() => {
     return clientsColumns({
-      onEditItem,
-      onDeleteItem,
+      onEditClient,
+      onDeleteClient,
       state,
       removeStringOperator,
       t,
     });
-  }, [onEditItem, onDeleteItem, state, removeStringOperator, t]);
+  }, [onEditClient, onDeleteClient, state, removeStringOperator, t]);
 
   const handleSearch = useCallback(
     (value: string) => {
