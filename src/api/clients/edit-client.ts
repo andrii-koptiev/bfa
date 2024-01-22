@@ -19,5 +19,11 @@ export const editClient = ({
 }: EditClientRequestDto): Promise<AxiosResponse<EditClientResponseDto>> => {
   const url = `${BASE_URL}/${DATABASE_NAME}/clients/${requestBody.id}.json`;
 
-  return axios.patch<EditClientResponseDto>(url, requestBody);
+  const requestWithoutClientId: ClientWithoutIdInterface = {
+    name: requestBody.name,
+    phone: requestBody.phone,
+    address: requestBody.address,
+  };
+
+  return axios.patch<EditClientResponseDto>(url, requestWithoutClientId);
 };
