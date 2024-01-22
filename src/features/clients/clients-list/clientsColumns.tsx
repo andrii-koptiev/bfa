@@ -49,7 +49,7 @@ export const clientsColumns = ({
     },
     {
       field: 'city',
-      headerName: t('grid_city_column'),
+      headerName: t('grid_address_column'),
       filterOperators,
       flex: 1,
     },

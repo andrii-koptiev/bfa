@@ -6,11 +6,11 @@ import {
   EditClientPayloadInterface,
 } from '../../../interfaces';
 import { useAppDispatch } from '../../../store';
-import { EditClientFormValuesInterface } from '../interfaces';
+import { CreateEditClientFormValuesInterface } from '../interfaces';
 
 type EditClientReturnType = {
   modal: ReturnType<typeof useModal>;
-  handleSubmit: (item: EditClientFormValuesInterface) => void;
+  handleSubmit: (item: CreateEditClientFormValuesInterface) => void;
   apiError: string | null;
   editedClient: ClientMappedInterface | null;
   handleEditClient: (clientData: ClientMappedInterface) => void;
@@ -31,7 +31,7 @@ export const useEditClient = (
   };
 
   const handleSubmit = useCallback(
-    async (clientData: EditClientFormValuesInterface) => {
+    async (clientData: CreateEditClientFormValuesInterface) => {
       if (!editedClient || !editedClient.id) {
         return;
       }

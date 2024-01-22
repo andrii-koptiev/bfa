@@ -1,7 +1,7 @@
 export interface ClientWithoutIdInterface {
   name: string;
   phone: string;
-  city: string;
+  address: string;
 }
 
 export interface ClientFromApiInterface {

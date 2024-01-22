@@ -81,9 +81,7 @@ const ClientsPage: FC = () => {
       {isAlertOpen && (
         <AlertCommon
           color={isApiError ? 'error' : 'success'}
-          text={
-            isApiError ? t('common_api_error') : t('alert_success_added_client')
-          }
+          text={isApiError ? t('common_api_error') : t('alert_success')}
         />
       )}
     </>

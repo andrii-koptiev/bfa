@@ -3,11 +3,11 @@ import { useCallback, useState } from 'react';
 import { useModal } from '../../../hooks';
 import { CreateClientPayloadInterface } from '../../../interfaces';
 import { useAppDispatch } from '../../../store';
-import { AddClientFormValuesInterface } from '../interfaces';
+import { CreateEditClientFormValuesInterface } from '../interfaces';
 
 type AddClientReturnType = {
   modal: ReturnType<typeof useModal>;
-  handleSubmit: (item: AddClientFormValuesInterface) => void;
+  handleSubmit: (item: CreateEditClientFormValuesInterface) => void;
   apiError: string | null;
 };
 
@@ -17,7 +17,7 @@ export const useAddClient = (onOpenAlert: () => void): AddClientReturnType => {
   const [apiError, setApiError] = useState<string | null>(null);
 
   const handleSubmit = useCallback(
-    async (clientsData: AddClientFormValuesInterface) => {
+    async (clientsData: CreateEditClientFormValuesInterface) => {
       setApiError(null);
 
       const payload: CreateClientPayloadInterface = {
