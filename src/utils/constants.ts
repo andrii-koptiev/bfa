@@ -5,9 +5,6 @@ export const TEXT_LOGIN = {
 };
 
 export const TEXT_CONSTANTS = {
-  COMMON: {
-    SEARCH_PLACEHOLDER: 'Пошук...',
-  },
   LAYOUT: {
     FOOTER_TITLE: 'Copyright BFA 2023',
     FOOTER_SUBTITLE: 'All Rights Reserved',
@@ -22,6 +19,8 @@ export const STYLES_CONSTANTS = {
 
 // Api
 export const BASE_URL =
-  'https://uyer-financial-accounting-default-rtdb.europe-west1.firebasedatabase.app/';
+  'https://buyer-financial-accounting-default-rtdb.europe-west1.firebasedatabase.app/';
 
 export const DATABASE_NAME = 'test';
+
+export const ALERT_TIME_MS = 5000;

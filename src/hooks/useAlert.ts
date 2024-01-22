@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+
+import { ALERT_TIME_MS } from '../utils';
 
 export const useAlert = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
 
-  const onOpenAlert = () => {
+  const onOpenAlert = useCallback(() => {
     setIsAlertOpen(true);
 
     setTimeout(() => {
       onCloseAlert();
-    }, 2000);
-  };
+    }, ALERT_TIME_MS);
+  }, []);
 
   const onCloseAlert = () => {
     setIsAlertOpen(false);

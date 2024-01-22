@@ -1,43 +1,35 @@
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import DoDisturbOnOutlinedIcon from '@mui/icons-material/DoDisturbOnOutlined';
 import { Box } from '@mui/material';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
 import ButtonCommon from './ButtonCommon';
 import ModalHeaderCommon from './ModalHeaderCommon';
 
 type Props = {
   title: string;
-  subtitle: string;
-  cancelButtonText: string;
+  confirmText: string;
   confirmButtonText: string;
-  onSubmitForm: (values: any) => void;
+  cancelButtonText: string;
+  onConfirm: () => void;
   onCancel: () => void;
-  isSubmitDisabled?: boolean;
-  children: ReactNode;
 };
-const ModalFormCommon: FC<Props> = ({
+
+const ConfirmationDialogCommon: FC<Props> = ({
+  onConfirm,
   title,
-  subtitle,
-  children,
-  cancelButtonText,
-  confirmButtonText,
-  onSubmitForm,
+  confirmText,
   onCancel,
-  isSubmitDisabled,
+  confirmButtonText,
+  cancelButtonText,
 }) => {
   return (
-    <Box
-      component='form'
-      display='flex'
-      flexDirection='column'
-      onSubmit={onSubmitForm}
-    >
+    <Box display='flex' flexDirection='column'>
       <Box mb='16px'>
-        <ModalHeaderCommon title={title} subtitle={subtitle} />
+        <ModalHeaderCommon title={title} />
       </Box>
       <Box display='flex' flexDirection='column' gap='24px' mb='48px'>
-        {children}
+        {confirmText}
       </Box>
       <Box
         display='flex'
@@ -54,14 +46,13 @@ const ModalFormCommon: FC<Props> = ({
         />
         <ButtonCommon
           children={confirmButtonText}
-          type='submit'
           variant='contained'
           startIcon={<CheckOutlinedIcon />}
-          disabled={isSubmitDisabled}
+          onClick={onConfirm}
         />
       </Box>
     </Box>
   );
 };
 
-export default ModalFormCommon;
+export default ConfirmationDialogCommon;

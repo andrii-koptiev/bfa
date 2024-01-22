@@ -3,22 +3,22 @@ import { useCallback, useState } from 'react';
 import { useModal } from '../../../hooks';
 import { CreateClientPayloadInterface } from '../../../interfaces';
 import { useAppDispatch } from '../../../store';
-import { AddEditClientFormValuesInterface } from '../interfaces';
+import { CreateEditClientFormValuesInterface } from '../interfaces';
 
 type AddClientReturnType = {
   modal: ReturnType<typeof useModal>;
-  handleSubmit: (item: AddEditClientFormValuesInterface) => void;
-  apiError: string | undefined;
+  handleSubmit: (item: CreateEditClientFormValuesInterface) => void;
+  apiError: string | null;
 };
 
 export const useAddClient = (onOpenAlert: () => void): AddClientReturnType => {
   const dispatch = useAppDispatch();
   const modal = useModal();
-  const [apiError, setApiError] = useState<string>();
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const handleSubmit = useCallback(
-    async (clientsData: AddEditClientFormValuesInterface) => {
-      setApiError('');
+    async (clientsData: CreateEditClientFormValuesInterface) => {
+      setApiError(null);
 
       const payload: CreateClientPayloadInterface = {
         requestBody: {
@@ -26,13 +26,17 @@ export const useAddClient = (onOpenAlert: () => void): AddClientReturnType => {
         },
       };
 
-      await dispatch.clients.createClient(payload);
-      try {
-        modal.onClose();
-        onOpenAlert();
-      } catch (e: any) {
-        console.log('error in hook', e);
-      }
+      await dispatch.clients
+        .createClient(payload)
+        .then(() => {
+          modal.onClose();
+          onOpenAlert();
+        })
+        .catch((e: string) => {
+          modal.onClose();
+          setApiError(e);
+          onOpenAlert();
+        });
     },
     [dispatch.clients, modal, onOpenAlert],
   );

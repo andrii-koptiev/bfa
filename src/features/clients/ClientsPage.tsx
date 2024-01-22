@@ -1,31 +1,47 @@
 import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import AlertCommon from '../../components/AlertCommon';
 import ButtonCommon from '../../components/ButtonCommon';
+import ConfirmationDialogCommon from '../../components/ConfirmationDialogCommon';
 import ModalCommon from '../../components/ModalCommon';
 import PageCardCommon from '../../components/PageCardCommon';
 import { useAlert } from '../../hooks';
-import { useAppDispatch } from '../../store';
 import { selectAllClients } from '../../store/models/clients/selectors';
 import ClientsList from './clients-list/ClientsList';
-import { useAddClient } from './hooks';
+import {
+  useAddClient,
+  useEditClient,
+  useGetClients,
+  useRemoveClient,
+} from './hooks';
 import AddEditClientForm from './manage-clients/AddEditClientForm';
 
 const ClientsPage: FC = () => {
-  const dispatch = useAppDispatch();
   const { t } = useTranslation();
-
   const { isAlertOpen, onOpenAlert } = useAlert();
-
   const addClientContext = useAddClient(onOpenAlert);
-
+  const getClientsContext = useGetClients(onOpenAlert);
+  const editClientContext = useEditClient(onOpenAlert);
+  const removeClientContext = useRemoveClient({ onOpenAlert });
   const clients = useSelector(selectAllClients);
+  const [isApiError, setIsApiError] = useState(false);
+
   useEffect(() => {
-    dispatch.clients.getClients();
-  }, [dispatch.clients]);
+    const hasApiError =
+      getClientsContext.apiError ||
+      addClientContext.apiError ||
+      editClientContext.apiError ||
+      removeClientContext.apiError;
+    setIsApiError(Boolean(hasApiError));
+  }, [
+    addClientContext.apiError,
+    editClientContext.apiError,
+    getClientsContext.apiError,
+    removeClientContext.apiError,
+  ]);
 
   return (
     <>
@@ -43,11 +59,12 @@ const ClientsPage: FC = () => {
         contentElement={
           <ClientsList
             items={clients}
-            onEditItem={() => {}}
-            onDeleteItem={() => {}}
+            onEditClient={editClientContext.handleEditClient}
+            onDeleteClient={removeClientContext.handleRemoveClient}
           />
         }
       />
+      {/*Create Client*/}
       <ModalCommon
         isOpen={addClientContext.modal.isOpen}
         onClose={addClientContext.modal.onClose}
@@ -59,8 +76,39 @@ const ClientsPage: FC = () => {
           />
         }
       />
+      {/*Edit Client*/}
+      <ModalCommon
+        isOpen={editClientContext.modal.isOpen}
+        onClose={editClientContext.modal.onClose}
+        content={
+          <AddEditClientForm
+            client={editClientContext.editedClient}
+            clientsList={clients}
+            onSubmitForm={editClientContext.handleSubmit}
+            onCancel={editClientContext.modal.onClose}
+          />
+        }
+      />
+      {/*Remove Client*/}
+      <ModalCommon
+        isOpen={removeClientContext.modal.isOpen}
+        onClose={removeClientContext.modal.onClose}
+        content={
+          <ConfirmationDialogCommon
+            title={t('common_confirm_dialog_title')}
+            confirmText={removeClientContext.confirmDialogText}
+            confirmButtonText={t('confirm_button_text')}
+            cancelButtonText={t('common_cancel')}
+            onConfirm={removeClientContext.handleSubmit}
+            onCancel={removeClientContext.modal.onClose}
+          />
+        }
+      />
       {isAlertOpen && (
-        <AlertCommon color='success' text={t('alert_success_added_client')} />
+        <AlertCommon
+          color={isApiError ? 'error' : 'success'}
+          text={isApiError ? t('common_api_error') : t('alert_success')}
+        />
       )}
     </>
   );

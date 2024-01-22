@@ -21,7 +21,7 @@ type AddEditClientValidationFormData = {
   cityLabel: string;
 };
 
-export const useAddEditClientFormValidation = ({
+export const useCreateEditClientFormValidation = ({
   client,
   clientsList,
   nameLabel,
@@ -105,7 +105,6 @@ export const useAddEditClientFormValidation = ({
         cityFormatLng,
         ({ label }) =>
           `${label} ${t('add_client_form_city_format_error_message')}`,
-      )
-      .required('Required'),
+      ),
   });
 };

@@ -5,34 +5,34 @@ import ModalFormCommon from '../../../components/ModalFormCommon';
 import { InputStyled } from '../../../components/styled';
 import { useFormValidation } from '../../../hooks';
 import { ClientMappedInterface } from '../../../interfaces';
-import { useAddEditClientFormValidation } from '../hooks';
-import { AddEditClientFormValuesInterface } from '../interfaces';
+import { useCreateEditClientFormValidation } from '../hooks';
+import { CreateEditClientFormValuesInterface } from '../interfaces';
 
 type Props = {
-  onSubmitForm: (values: AddEditClientFormValuesInterface) => void;
+  onSubmitForm: (values: CreateEditClientFormValuesInterface) => void;
   onCancel: () => void;
   clientsList: ClientMappedInterface[];
-  client?: ClientMappedInterface;
+  client?: ClientMappedInterface | null;
 };
 
 const AddEditClientForm: FC<Props> = ({
-  client,
   onSubmitForm,
   onCancel,
   clientsList,
+  client = null,
 }) => {
   const { t } = useTranslation();
   const nameInputLabel = t('add_client_form_name_label');
   const phoneInputLabel = t('add_client_form_phone_label');
   const cityInputLabel = t('add_client_form_city_label');
   const { values, handleChange, handleSubmit, errors, isAllInputsValid } =
-    useFormValidation<AddEditClientFormValuesInterface>({
+    useFormValidation<CreateEditClientFormValuesInterface>({
       initialValues: {
         name: client?.name ?? '',
         phone: client?.phone ?? '',
-        city: client?.city ?? '',
+        address: client?.address ?? '',
       },
-      validationSchema: useAddEditClientFormValidation({
+      validationSchema: useCreateEditClientFormValidation({
         client: client || null,
         clientsList,
         nameLabel: nameInputLabel,
@@ -44,9 +44,9 @@ const AddEditClientForm: FC<Props> = ({
     });
   return (
     <ModalFormCommon
-      title={t('add_client_form_title')}
+      title={t(client ? 'edit_client_form_title' : 'add_client_form_title')}
       subtitle={t('add_client_form_subtitle')}
-      confirmButtonText={t('common_add')}
+      confirmButtonText={t(client ? 'common_edit' : 'common_add')}
       cancelButtonText={t('common_cancel')}
       onSubmitForm={handleSubmit}
       onCancel={onCancel}
@@ -72,12 +72,11 @@ const AddEditClientForm: FC<Props> = ({
       />
       <InputStyled
         label={cityInputLabel}
-        name='city'
-        value={values.city}
+        name='address'
+        value={values.address}
         onChange={handleChange}
-        error={!!errors.city}
-        helperText={errors.city}
-        required
+        error={!!errors.address}
+        helperText={errors.address}
       />
     </ModalFormCommon>
   );
