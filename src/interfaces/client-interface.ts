@@ -2,6 +2,7 @@ export interface ClientWithoutIdInterface {
   name: string;
   phone: string;
   address: string;
+  createdAt: string;
 }
 
 export interface ClientFromApiInterface {

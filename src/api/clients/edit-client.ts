@@ -23,6 +23,7 @@ export const editClient = ({
     name: requestBody.name,
     phone: requestBody.phone,
     address: requestBody.address,
+    createdAt: requestBody.createdAt,
   };
 
   return axios.patch<EditClientResponseDto>(url, requestWithoutClientId);
