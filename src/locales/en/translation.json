@@ -28,5 +28,8 @@
   "common_cancel": "Cancel",
   "common_edit": "Edit",
   "alert_success": "Changes were added successfully",
-  "common_api_error": "An error was occurred. Please contact support or try later"
+  "common_api_error": "An error was occurred. Please contact support or try later",
+  "common_confirm_dialog_title": "Confirm action",
+  "common_confirm_dialog_text": "Are you sure you want to delete client",
+  "confirm_button_text": "Confirm"
 }

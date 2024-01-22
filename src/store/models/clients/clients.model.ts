@@ -1,7 +1,12 @@
 import { createModel } from '@rematch/core';
 import { AxiosError } from 'axios';
 
-import { createClient, editClient, getClients } from '../../../api';
+import {
+  createClient,
+  editClient,
+  getClients,
+  removeClient,
+} from '../../../api';
 import {
   ClientMappedInterface,
   CreateClientPayloadInterface,
@@ -41,6 +46,13 @@ export const clientsModel = createModel<RootModel>()({
     },
     async editClient(payload: EditClientPayloadInterface) {
       await editClient(payload).catch((e: AxiosError<{ message: string }>) => {
+        throw new Error(e.message);
+      });
+
+      await dispatch.clients.getClients();
+    },
+    async removeClient(id: ClientMappedInterface['id']) {
+      await removeClient(id).catch((e: AxiosError<{ message: string }>) => {
         throw new Error(e.message);
       });
 

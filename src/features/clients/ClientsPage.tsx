@@ -5,12 +5,18 @@ import { useSelector } from 'react-redux';
 
 import AlertCommon from '../../components/AlertCommon';
 import ButtonCommon from '../../components/ButtonCommon';
+import ConfirmationDialogCommon from '../../components/ConfirmationDialogCommon';
 import ModalCommon from '../../components/ModalCommon';
 import PageCardCommon from '../../components/PageCardCommon';
 import { useAlert } from '../../hooks';
 import { selectAllClients } from '../../store/models/clients/selectors';
 import ClientsList from './clients-list/ClientsList';
-import { useAddClient, useEditClient, useGetClients } from './hooks';
+import {
+  useAddClient,
+  useEditClient,
+  useGetClients,
+  useRemoveClient,
+} from './hooks';
 import AddEditClientForm from './manage-clients/AddEditClientForm';
 
 const ClientsPage: FC = () => {
@@ -19,6 +25,7 @@ const ClientsPage: FC = () => {
   const addClientContext = useAddClient(onOpenAlert);
   const getClientsContext = useGetClients(onOpenAlert);
   const editClientContext = useEditClient(onOpenAlert);
+  const removeClientContext = useRemoveClient({ onOpenAlert });
   const clients = useSelector(selectAllClients);
   const [isApiError, setIsApiError] = useState(false);
 
@@ -26,12 +33,14 @@ const ClientsPage: FC = () => {
     const hasApiError =
       getClientsContext.apiError ||
       addClientContext.apiError ||
-      editClientContext.apiError;
+      editClientContext.apiError ||
+      removeClientContext.apiError;
     setIsApiError(Boolean(hasApiError));
   }, [
     addClientContext.apiError,
     editClientContext.apiError,
     getClientsContext.apiError,
+    removeClientContext.apiError,
   ]);
 
   return (
@@ -51,10 +60,11 @@ const ClientsPage: FC = () => {
           <ClientsList
             items={clients}
             onEditClient={editClientContext.handleEditClient}
-            onDeleteClient={() => {}}
+            onDeleteClient={removeClientContext.handleRemoveClient}
           />
         }
       />
+      {/*Create Client*/}
       <ModalCommon
         isOpen={addClientContext.modal.isOpen}
         onClose={addClientContext.modal.onClose}
@@ -66,6 +76,7 @@ const ClientsPage: FC = () => {
           />
         }
       />
+      {/*Edit Client*/}
       <ModalCommon
         isOpen={editClientContext.modal.isOpen}
         onClose={editClientContext.modal.onClose}
@@ -75,6 +86,21 @@ const ClientsPage: FC = () => {
             clientsList={clients}
             onSubmitForm={editClientContext.handleSubmit}
             onCancel={editClientContext.modal.onClose}
+          />
+        }
+      />
+      {/*Remove Client*/}
+      <ModalCommon
+        isOpen={removeClientContext.modal.isOpen}
+        onClose={removeClientContext.modal.onClose}
+        content={
+          <ConfirmationDialogCommon
+            title={t('common_confirm_dialog_title')}
+            confirmText={removeClientContext.confirmDialogText}
+            confirmButtonText={t('confirm_button_text')}
+            cancelButtonText={t('common_cancel')}
+            onConfirm={removeClientContext.handleSubmit}
+            onCancel={removeClientContext.modal.onClose}
           />
         }
       />
