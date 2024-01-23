@@ -5,9 +5,12 @@ import { DataGrid, DataGridProps } from '@mui/x-data-grid';
 export const DataGridStyled = styled(DataGrid)<DataGridProps>(
   ({ theme }): CSSObject => ({
     color: theme.palette.text.secondary,
-    fontSize: '13px',
+    fontSize: '12px',
     width: '100%',
     border: 'none',
+    '.MuiDataGrid-main': {
+      maxHeight: '665px',
+    },
     '.MuiDataGrid-columnSeparator': {
       display: 'none',
     },

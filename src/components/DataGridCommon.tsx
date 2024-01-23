@@ -1,8 +1,8 @@
+import { Box } from '@mui/material';
 import { GridColDef, GridPaginationModel } from '@mui/x-data-grid';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import PaginationCommon from './PaginationCommon';
 import SearchCommon from './SearchCommon';
 import { DataGridStyled } from './styled';
 
@@ -24,8 +24,8 @@ type Props = {
 const DataGridCommon: FC<Props> = ({
   columns,
   rows,
-  pageSizeOptions = [10],
-  paginationModel = { pageSize: 10, page: 0 },
+  pageSizeOptions = [10, 15, 25, 50, 100],
+  paginationModel = { pageSize: 15, page: 0 },
   disableColumnSelector = true,
   disableRowSelectionOnClick = true,
   checkboxSelection = false,
@@ -38,9 +38,8 @@ const DataGridCommon: FC<Props> = ({
   const { t } = useTranslation();
   return (
     <DataGridStyled
-      autoHeight={true}
       rows={rows}
-      rowHeight={44}
+      rowHeight={38}
       columns={columns}
       slots={{
         toolbar: () =>
@@ -53,12 +52,11 @@ const DataGridCommon: FC<Props> = ({
               onInputTouched={onInputTouched}
             />
           ) : null,
-        pagination: PaginationCommon,
       }}
       initialState={{
         pagination: { paginationModel },
         sorting: {
-          sortModel: [{ field: 'updatedAt', sort: 'desc' }],
+          sortModel: [{ field: 'createdAt', sort: 'desc' }],
         },
       }}
       disableColumnSelector={disableColumnSelector}
