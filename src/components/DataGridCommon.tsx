@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import { GridColDef, GridPaginationModel } from '@mui/x-data-grid';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
