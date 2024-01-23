@@ -1,2 +1,2 @@
-export * from './mapClientsFromApi';
+export * from './dataApiMappers';
 export * from './inputUniqueValidation';

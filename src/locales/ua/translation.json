@@ -5,7 +5,7 @@
   "reports_menu": "Звіти",
   "clients_title": "Клієнти",
   "manage_clients_subtitle": "управляй своїми клієнтами",
-  "add_client_button": "Додати Клієнта",
+  "add_client_button": "Додати клієнта",
   "grid_name_column": "Імʼя",
   "grid_phone_column": "Телефон",
   "grid_address_column": "Адреса",
@@ -32,5 +32,17 @@
   "common_api_error": "Виникла помилка. Звернітся до служби підтримки або спробуйте пізніше",
   "common_confirm_dialog_title": "Підвердіть дію",
   "common_confirm_dialog_text": "Ви впевнені, що хочете видалити клієнта",
-  "confirm_button_text": "Підтвердити"
+  "confirm_button_text": "Підтвердити",
+  "orders_title": "Замовлення",
+  "manage_orders_subtitle": "управляй своїми замовленнями",
+  "add_order_button": "Додати замовлення",
+  "orders_grid_order_number_column": "# замовлення",
+  "orders_grid_store_name_column": "Магазин",
+  "orders_grid_total_amount_currency_column": "Загальна сумма(валюта)",
+  "orders_grid_currency_column": "Валюта",
+  "orders_grid_client_currency_rate_column": "Курс клієнта",
+  "orders_grid_order_currency_rate_column": "Курс замовлення",
+  "orders_grid_total_amount_UAH_column": "Загальна сумма(UAH)",
+  "orders_grid_profit_column": "Прибуток",
+  "orders_search_placeholder": "Пошук за # замовлення або магазином..."
 }

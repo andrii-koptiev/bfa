@@ -3,6 +3,7 @@ import { generatePath, useParams } from 'react-router-dom';
 
 import LinkCommon from '../../../components/LinkCommon';
 import { ClientMappedInterface } from '../../../interfaces';
+import { ClientLevelRouteParams } from '../../../navigation/types';
 
 interface Props {
   row: ClientMappedInterface;
@@ -11,7 +12,7 @@ interface Props {
 }
 
 const ClientsLinkColumn: FC<Props> = ({ row, route, state }) => {
-  const clientId = useParams<any>().clientId;
+  const clientId = useParams<ClientLevelRouteParams>().clientId;
 
   const path = generatePath(route, {
     clientId,

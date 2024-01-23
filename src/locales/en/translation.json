@@ -4,8 +4,9 @@
   "payments_menu": "Payments",
   "reports_menu": "Reports",
   "clients_title": "Clients",
+  "orders_title": "Orders",
   "manage_clients_subtitle": "manage your clients",
-  "add_client_button": "Add Client",
+  "add_client_button": "Add client",
   "grid_name_column": "Name",
   "grid_phone_column": "Phone",
   "grid_address_column": "Address",
@@ -32,5 +33,16 @@
   "common_api_error": "An error was occurred. Please contact support or try later",
   "common_confirm_dialog_title": "Confirm action",
   "common_confirm_dialog_text": "Are you sure you want to delete client",
-  "confirm_button_text": "Confirm"
+  "confirm_button_text": "Confirm",
+  "manage_orders_subtitle": "manage your orders",
+  "add_order_button": "Add Order",
+  "orders_grid_order_number_column": "Order #",
+  "orders_grid_store_name_column": "Store",
+  "orders_grid_total_amount_currency_column": "Total amount(currency)",
+  "orders_grid_currency_column": "Currency",
+  "orders_grid_client_currency_rate_column": "Client rate",
+  "orders_grid_order_currency_rate_column": "Order rate",
+  "orders_grid_total_amount_UAH_column": "Total amount(UAH)",
+  "orders_grid_profit_column": "Profit",
+  "orders_search_placeholder": "Search by order # or store..."
 }
