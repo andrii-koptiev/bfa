@@ -31,6 +31,7 @@ const AddEditClientForm: FC<Props> = ({
         name: client?.name ?? '',
         phone: client?.phone ?? '',
         address: client?.address ?? '',
+        createdAt: client?.createdAt ?? '',
       },
       validationSchema: useCreateEditClientFormValidation({
         client: client || null,

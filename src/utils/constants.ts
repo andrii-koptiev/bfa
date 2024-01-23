@@ -17,10 +17,11 @@ export const STYLES_CONSTANTS = {
   INPUT_MIN_HEIGHT: '72px',
 };
 
+// Formats
+export const GRID_DATE_FORMAT = 'MM/DD/YYYY hh:mm A';
+export const DATABASE_NAME = 'test';
+export const ALERT_TIME_MS = 5000;
+
 // Api
 export const BASE_URL =
   'https://buyer-financial-accounting-default-rtdb.europe-west1.firebasedatabase.app/';
-
-export const DATABASE_NAME = 'test';
-
-export const ALERT_TIME_MS = 5000;

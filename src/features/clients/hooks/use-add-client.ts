@@ -23,6 +23,7 @@ export const useAddClient = (onOpenAlert: () => void): AddClientReturnType => {
       const payload: CreateClientPayloadInterface = {
         requestBody: {
           ...clientsData,
+          createdAt: new Date().toISOString(),
         },
       };
 

@@ -7,8 +7,10 @@ import {
   getGridStringOperators,
 } from '@mui/x-data-grid';
 import { TFunction } from 'i18next';
+import moment from 'moment';
 
 import { ClientMappedInterface } from '../../../interfaces';
+import { GRID_DATE_FORMAT } from '../../../utils';
 import ClientsLinkColumn from './ClientsLinkColumn';
 
 type ClientsColumnsArgs = {
@@ -52,6 +54,15 @@ export const clientsColumns = ({
       headerName: t('grid_address_column'),
       filterOperators,
       flex: 1,
+    },
+    {
+      field: 'createdAt',
+      headerName: t('grid_date_column'),
+      filterOperators,
+      flex: 1,
+      valueGetter: (params) => new Date(params.row.createdAt),
+      valueFormatter: (params) =>
+        moment(params?.value).format(GRID_DATE_FORMAT),
     },
     {
       field: 'actions',
