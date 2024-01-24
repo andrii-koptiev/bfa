@@ -4,35 +4,30 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import ButtonCommon from '../../components/ButtonCommon';
+import ModalCommon from '../../components/ModalCommon';
 import PageCardCommon from '../../components/PageCardCommon';
 import { useAlert } from '../../hooks';
 import { selectAllOrders } from '../../store/models/orders/selectors';
-import { useGetOrders } from './hooks';
+import { useCreateOrder, useGetOrders } from './hooks';
 import OrdersList from './orders-list/OrdersList';
 
 const OrdersPage: FC = () => {
   const { t } = useTranslation();
   const { isAlertOpen, onOpenAlert } = useAlert();
-  // const addClientContext = useAddClient(onOpenAlert);
   const getOrdersContext = useGetOrders({ onOpenAlert });
+  const createOrderContext = useCreateOrder({ onOpenAlert });
   // const editClientContext = useEditClient(onOpenAlert);
   // const removeClientContext = useRemoveClient({ onOpenAlert });
   const orders = useSelector(selectAllOrders);
   const [isApiError, setIsApiError] = useState(false);
 
-  // useEffect(() => {
-  //   const hasApiError =
-  //     getClientsContext.apiError ||
-  //     addClientContext.apiError ||
-  //     editClientContext.apiError ||
-  //     removeClientContext.apiError;
-  //   setIsApiError(Boolean(hasApiError));
-  // }, [
-  //   addClientContext.apiError,
-  //   editClientContext.apiError,
-  //   getClientsContext.apiError,
-  //   removeClientContext.apiError,
-  // ]);
+  useEffect(() => {
+    const hasApiError =
+      getOrdersContext.apiError || createOrderContext.apiError;
+    // editClientContext.apiError ||
+    // removeClientContext.apiError;
+    setIsApiError(Boolean(hasApiError));
+  }, [getOrdersContext.apiError, createOrderContext.apiError]);
 
   return (
     <>
@@ -44,7 +39,7 @@ const OrdersPage: FC = () => {
             children={t('add_order_button')}
             variant='contained'
             startIcon={<PersonAddAlt1OutlinedIcon />}
-            onClick={() => {}}
+            onClick={createOrderContext.modal.onOpen}
           />
         }
         contentElement={
@@ -55,18 +50,12 @@ const OrdersPage: FC = () => {
           />
         }
       />
-      {/*/!*Create Client*!/*/}
-      {/*<ModalCommon*/}
-      {/*  isOpen={addClientContext.modal.isOpen}*/}
-      {/*  onClose={addClientContext.modal.onClose}*/}
-      {/*  content={*/}
-      {/*    <AddEditClientForm*/}
-      {/*      clientsList={clients}*/}
-      {/*      onSubmitForm={addClientContext.handleSubmit}*/}
-      {/*      onCancel={addClientContext.modal.onClose}*/}
-      {/*    />*/}
-      {/*  }*/}
-      {/*/>*/}
+      {/*Create Order*/}
+      <ModalCommon
+        isOpen={createOrderContext.modal.isOpen}
+        onClose={createOrderContext.modal.onClose}
+        content={null}
+      />
       {/*/!*Edit Client*!/*/}
       {/*<ModalCommon*/}
       {/*  isOpen={editClientContext.modal.isOpen}*/}

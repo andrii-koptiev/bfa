@@ -3,6 +3,7 @@ import { AxiosError } from 'axios';
 
 import {
   createClient,
+  createOrder,
   editClient,
   getClients,
   getOrders,
@@ -11,6 +12,7 @@ import {
 import {
   ClientMappedInterface,
   CreateClientPayloadInterface,
+  CreateOrderPayloadInterface,
   EditClientPayloadInterface,
   OrderMappedInterface,
 } from '../../../interfaces';
@@ -37,15 +39,14 @@ export const ordersModel = createModel<RootModel>()({
 
       await dispatch.orders.setOrders(orders);
     },
-    // async createClient(payload: CreateClientPayloadInterface) {
-    //   await createClient(payload).catch(
-    //     (e: AxiosError<{ message: string }>) => {
-    //       throw new Error(e.message);
-    //     },
-    //   );
-    //
-    //   await dispatch.clients.getClients();
-    // },
+
+    async createOrder(payload: CreateOrderPayloadInterface) {
+      await createOrder(payload).catch((e: AxiosError<{ message: string }>) => {
+        throw new Error(e.message);
+      });
+
+      await dispatch.orders.getOrders();
+    },
     // async editClient(payload: EditClientPayloadInterface) {
     //   await editClient(payload).catch((e: AxiosError<{ message: string }>) => {
     //     throw new Error(e.message);
