@@ -1,4 +1,4 @@
-import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
+import AddIcon from '@mui/icons-material/Add';
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -52,7 +52,7 @@ const ClientsPage: FC = () => {
           <ButtonCommon
             children={t('add_client_button')}
             variant='contained'
-            startIcon={<PersonAddAlt1OutlinedIcon />}
+            startIcon={<AddIcon />}
             onClick={addClientContext.modal.onOpen}
           />
         }
