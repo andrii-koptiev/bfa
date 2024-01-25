@@ -1,21 +1,12 @@
-import {
-  ClientFromApiInterface,
-  ClientMappedInterface,
-  OrderFromApiInterface,
-  OrderMappedInterface,
-} from '../../interfaces';
+type ApiInterface<T> = {
+  [id: string]: T;
+};
 
-export const dataApiMappers = (
-  apiData: ClientFromApiInterface,
-): ClientMappedInterface[] =>
-  Object.keys(apiData).map((id) => ({
-    id,
-    ...apiData[id],
-  }));
+type MappedInterface<T> = {
+  id: string;
+} & T;
 
-export const mapOrdersFromApi = (
-  apiData: OrderFromApiInterface,
-): OrderMappedInterface[] =>
+export const mapFromApi = <T>(apiData: ApiInterface<T>): MappedInterface<T>[] =>
   Object.keys(apiData).map((id) => ({
     id,
     ...apiData[id],

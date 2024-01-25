@@ -12,7 +12,7 @@ import {
   CreateClientPayloadInterface,
   EditClientPayloadInterface,
 } from '../../../interfaces';
-import { dataApiMappers } from '../../../utils';
+import { mapFromApi } from '../../../utils';
 import { RootModel } from '../index';
 import { ClientStateType } from './types';
 
@@ -28,7 +28,7 @@ export const clientsModel = createModel<RootModel>()({
   effects: (dispatch) => ({
     async getClients() {
       const clients = await getClients()
-        .then((res) => dataApiMappers(res.data))
+        .then((res) => mapFromApi(res.data))
         .catch((e: AxiosError<{ message: string }>) => {
           throw new Error(e.message);
         });

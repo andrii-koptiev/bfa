@@ -16,7 +16,7 @@ import {
   EditClientPayloadInterface,
   OrderMappedInterface,
 } from '../../../interfaces';
-import { mapOrdersFromApi } from '../../../utils';
+import { mapFromApi } from '../../../utils';
 import { RootModel } from '../index';
 import { OrdersStateType } from './types';
 
@@ -32,7 +32,7 @@ export const ordersModel = createModel<RootModel>()({
   effects: (dispatch) => ({
     async getOrders() {
       const orders = await getOrders()
-        .then((res) => mapOrdersFromApi(res.data))
+        .then((res) => mapFromApi(res.data))
         .catch((e: AxiosError<{ message: string }>) => {
           throw new Error(e.message);
         });
