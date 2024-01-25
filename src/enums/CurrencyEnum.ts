@@ -1,6 +1,7 @@
 export enum CurrencyEnum {
+  EMPTY = '',
   USD = 'USD',
-  EUR = 'EURO',
+  EUR = 'EUR',
   PLN = 'PLN',
   GBP = 'GBP',
   UAH = 'UAH',

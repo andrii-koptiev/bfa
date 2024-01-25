@@ -53,5 +53,6 @@
   "order_form_client_currency_rate_label": "Курс клієнта",
   "order_form_order_currency_rate_label": "Курс замовлення",
   "order_form_order_number_format_error_message": "має містити тільки букви, цифри та '-' символ",
-  "order_form_order_number_unique_error_message": "цей номер замовлення вже присутній у вашій базі"
+  "order_form_order_number_unique_error_message": "цей номер замовлення вже присутній у вашій базі",
+  "select_common_empty_options": "Опціі відсутні"
 }

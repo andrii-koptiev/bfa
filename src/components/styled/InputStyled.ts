@@ -20,10 +20,9 @@ export const InputStyled = styled(TextField)<StyledTextFieldProps>(
       padding: '12px',
       borderRadius: theme.shape.borderRadius,
       fontSize: '14px',
+      height: '22px',
     },
     '& .MuiFormLabel-root': {
-      color: theme.palette.common.black,
-      fontWeight: theme.typography.fontWeightLight,
       fontSize: '12px',
     },
     '& fieldset': {

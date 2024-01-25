@@ -2,9 +2,12 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import ModalFormCommon from '../../../components/ModalFormCommon';
+import SelectCommon from '../../../components/SelectCommon';
 import { InputStyled } from '../../../components/styled';
+import { CurrencyEnum } from '../../../enums';
 import { useFormValidation } from '../../../hooks';
 import { OrderMappedInterface } from '../../../interfaces';
+import { orderCurrencyOptions } from '../constants';
 import { useCreateEditOrderFormValidation } from '../hooks';
 import { CreateEditOrderFormValuesInterface } from '../interfaces';
 
@@ -34,7 +37,7 @@ const CreateEditOrderForm: FC<Props> = ({
       initialValues: {
         orderNumber: order?.orderNumber ?? '',
         storeName: order?.storeName ?? '',
-        currency: order?.currency ?? null,
+        currency: order?.currency ?? CurrencyEnum.EMPTY,
         clientCurrencyRate: order?.clientCurrencyRate ?? 0,
         orderCurrencyRate: order?.orderCurrencyRate ?? 0,
       },
@@ -67,6 +70,16 @@ const CreateEditOrderForm: FC<Props> = ({
         onChange={handleChange}
         error={!!errors.orderNumber}
         helperText={errors.orderNumber}
+        required
+      />
+      <SelectCommon
+        label={currencyInputLabel}
+        options={orderCurrencyOptions}
+        name={'currency'}
+        value={values.currency}
+        onChange={handleChange}
+        error={!!errors.currency}
+        helperText={errors.currency}
         required
       />
     </ModalFormCommon>

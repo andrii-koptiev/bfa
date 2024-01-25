@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { object, string } from 'yup';
+import { mixed, object, string } from 'yup';
 
 import { CurrencyEnum } from '../../../enums';
 import { OrderMappedInterface } from '../../../interfaces';
@@ -68,6 +68,10 @@ export const useCreateEditOrderFormValidation = ({
           });
         },
       )
+      .required('Required'),
+
+    currency: mixed<CurrencyEnum>()
+      .oneOf(Object.values(CurrencyEnum))
       .required('Required'),
 
     // phone: string()
