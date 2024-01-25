@@ -7,6 +7,7 @@ import { InputStyled } from '../../../components/styled';
 import { CurrencyEnum } from '../../../enums';
 import { useFormValidation } from '../../../hooks';
 import { OrderMappedInterface } from '../../../interfaces';
+import { STYLES_CONSTANTS } from '../../../utils';
 import { orderCurrencyOptions } from '../constants';
 import { useCreateEditOrderFormValidation } from '../hooks';
 import { CreateEditOrderFormValuesInterface } from '../interfaces';
@@ -38,8 +39,8 @@ const CreateEditOrderForm: FC<Props> = ({
         orderNumber: order?.orderNumber ?? '',
         storeName: order?.storeName ?? '',
         currency: order?.currency ?? CurrencyEnum.EMPTY,
-        clientCurrencyRate: order?.clientCurrencyRate ?? 0,
-        orderCurrencyRate: order?.orderCurrencyRate ?? 0,
+        clientCurrencyRate: order?.clientCurrencyRate ?? '',
+        orderCurrencyRate: order?.orderCurrencyRate ?? '',
       },
       validationSchema: useCreateEditOrderFormValidation({
         order: order || null,
@@ -64,6 +65,7 @@ const CreateEditOrderForm: FC<Props> = ({
       isSubmitDisabled={!isAllInputsValid}
     >
       <InputStyled
+        sx={{ minHeight: STYLES_CONSTANTS.INPUT_MIN_HEIGHT }}
         label={orderNumberInputLabel}
         name='orderNumber'
         value={values.orderNumber}
@@ -80,6 +82,26 @@ const CreateEditOrderForm: FC<Props> = ({
         onChange={handleChange}
         error={!!errors.currency}
         helperText={errors.currency}
+        required
+      />
+      <InputStyled
+        sx={{ minHeight: STYLES_CONSTANTS.INPUT_MIN_HEIGHT }}
+        label={orderCurrencyRateInputLabel}
+        name='orderCurrencyRate'
+        value={values.orderCurrencyRate}
+        onChange={handleChange}
+        error={!!errors.orderCurrencyRate}
+        helperText={errors.orderCurrencyRate}
+        required
+      />
+      <InputStyled
+        sx={{ minHeight: STYLES_CONSTANTS.INPUT_MIN_HEIGHT }}
+        label={clientCurrencyRateInputLabel}
+        name='clientCurrencyRate'
+        value={values.clientCurrencyRate}
+        onChange={handleChange}
+        error={!!errors.clientCurrencyRate}
+        helperText={errors.clientCurrencyRate}
         required
       />
     </ModalFormCommon>

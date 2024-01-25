@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 import { useModal } from '../../../hooks';
 import { CreateOrderPayloadInterface } from '../../../interfaces';
 import { useAppDispatch } from '../../../store';
+import { numberInputFormatter } from '../../../utils';
 import { CreateEditOrderFormValuesInterface } from '../interfaces';
 
 type CreateOrderProps = {
@@ -26,9 +27,15 @@ export const useCreateOrder = ({
     async (orderData: CreateEditOrderFormValuesInterface) => {
       setApiError(null);
 
+      const formattedOrderData = {
+        ...orderData,
+        clientCurrencyRate: numberInputFormatter(orderData.clientCurrencyRate),
+        orderCurrencyRate: numberInputFormatter(orderData.orderCurrencyRate),
+      };
+
       const payload: CreateOrderPayloadInterface = {
         requestBody: {
-          ...orderData,
+          ...formattedOrderData,
           totalAmountCurrency: null,
           totalAmountUAH: null,
           profit: null,

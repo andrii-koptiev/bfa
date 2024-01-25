@@ -3,7 +3,11 @@ import { mixed, object, string } from 'yup';
 
 import { CurrencyEnum } from '../../../enums';
 import { OrderMappedInterface } from '../../../interfaces';
-import { inputUniqueValidation, orderNumberFormatRegExp } from '../../../utils';
+import {
+  inputUniqueValidation,
+  numbersFormatRegExp,
+  orderNumberFormatRegExp,
+} from '../../../utils';
 
 type CreateEditClientValidationFormData = {
   order: OrderMappedInterface | null;
@@ -25,26 +29,6 @@ export const useCreateEditOrderFormValidation = ({
   orderCurrencyRateLabel,
 }: CreateEditClientValidationFormData) => {
   const { t } = useTranslation();
-  // const [nameFormatLng, setNameFormatLng] = useState<RegExp>(
-  //   clientNameFormatRegExpEn,
-  // );
-  // const [cityFormatLng, setCityFormatLng] = useState<RegExp>(
-  //   clientCityFormatRegExpEn,
-  // );
-  // useEffect(() => {
-  //   switch (i18n.language) {
-  //     case LanguagesEnum.EN:
-  //       setNameFormatLng(clientNameFormatRegExpEn);
-  //       setCityFormatLng(clientCityFormatRegExpEn);
-  //       break;
-  //     case LanguagesEnum.UA:
-  //       setNameFormatLng(clientNameFormatRegExpUa);
-  //       setCityFormatLng(clientCityFormatRegExpUa);
-  //       break;
-  //     default:
-  //       setNameFormatLng(clientNameFormatRegExpEn);
-  //   }
-  // }, [i18n.language]);
 
   return object().shape({
     orderNumber: string()
@@ -71,40 +55,28 @@ export const useCreateEditOrderFormValidation = ({
       .required('Required'),
 
     currency: mixed<CurrencyEnum>()
+      .label(currencyLabel)
       .oneOf(Object.values(CurrencyEnum))
       .required('Required'),
 
-    // phone: string()
-    //   .label(phoneLabel)
-    //   .strict(true)
-    //   .trim()
-    //   .matches(
-    //     clientPhoneFormatRegExpUa,
-    //     ({ label }) =>
-    //       `${label} ${t('add_client_form_phone_format_error_message')}`,
-    //   )
-    //   .test(
-    //     'unique-name',
-    //     t('add_client_form_phone_unique_error_message'),
-    //     (value) => {
-    //       return inputUniqueValidation({
-    //         value: value || null,
-    //         data: clientsList,
-    //         existingValue: client?.phone || null,
-    //         fieldName: 'phone',
-    //       });
-    //     },
-    //   )
-    //   .required('Required'),
+    orderCurrencyRate: string()
+      .label(String(orderCurrencyRateLabel))
+      .strict(true)
+      .trim()
+      .matches(
+        numbersFormatRegExp,
+        ({ label }) => `${label} ${t('input_number_format_error_message')}`,
+      )
+      .required('Required'),
 
-    // city: string()
-    //   .label(cityLabel)
-    //   .strict(true)
-    //   .trim()
-    //   .matches(
-    //     cityFormatLng,
-    //     ({ label }) =>
-    //       `${label} ${t('add_client_form_city_format_error_message')}`,
-    //   ),
+    clientCurrencyRate: string()
+      .label(String(clientCurrencyRateLabel))
+      .strict(true)
+      .trim()
+      .matches(
+        numbersFormatRegExp,
+        ({ label }) => `${label} ${t('input_number_format_error_message')}`,
+      )
+      .required('Required'),
   });
 };

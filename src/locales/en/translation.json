@@ -54,5 +54,6 @@
   "order_form_order_currency_rate_label": "Order rate",
   "order_form_order_number_format_error_message": "should contain letters, numbers and/or '-' symbol",
   "order_form_order_number_unique_error_message": "this order number already exist in your database",
-  "select_common_empty_options": "No options"
+  "select_common_empty_options": "No options",
+  "input_number_format_error_message": "should contain numbers, '.' or ',' symbols"
 }
