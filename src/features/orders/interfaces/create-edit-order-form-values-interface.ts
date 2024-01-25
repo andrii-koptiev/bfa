@@ -3,11 +3,7 @@ import { CurrencyEnum } from '../../../enums';
 export interface CreateEditOrderFormValuesInterface {
   orderNumber: string;
   storeName: string;
-  totalAmountCurrency: number | null;
-  currency: CurrencyEnum;
+  currency: CurrencyEnum | null;
   clientCurrencyRate: number;
   orderCurrencyRate: number;
-  totalAmountUAH: number | null;
-  profit: number | null;
-  createdAt: string;
 }

@@ -8,6 +8,7 @@ import ModalCommon from '../../components/ModalCommon';
 import PageCardCommon from '../../components/PageCardCommon';
 import { useAlert } from '../../hooks';
 import { selectAllOrders } from '../../store/models/orders/selectors';
+import CreateEditOrderForm from './components/CreateEditOrderForm';
 import { useCreateOrder, useGetOrders } from './hooks';
 import OrdersList from './orders-list/OrdersList';
 
@@ -54,7 +55,13 @@ const OrdersPage: FC = () => {
       <ModalCommon
         isOpen={createOrderContext.modal.isOpen}
         onClose={createOrderContext.modal.onClose}
-        content={null}
+        content={
+          <CreateEditOrderForm
+            onSubmitForm={createOrderContext.handleSubmit}
+            onCancel={createOrderContext.modal.onClose}
+            ordersList={orders}
+          />
+        }
       />
       {/*/!*Edit Client*!/*/}
       {/*<ModalCommon*/}

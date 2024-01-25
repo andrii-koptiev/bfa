@@ -29,6 +29,9 @@ export const useCreateOrder = ({
       const payload: CreateOrderPayloadInterface = {
         requestBody: {
           ...orderData,
+          totalAmountCurrency: null,
+          totalAmountUAH: null,
+          profit: null,
           createdAt: new Date().toISOString(),
         },
       };

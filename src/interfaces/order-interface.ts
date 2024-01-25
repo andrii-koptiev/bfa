@@ -4,7 +4,7 @@ export interface OrderWithoutIdInterface {
   orderNumber: string;
   storeName: string;
   totalAmountCurrency: number | null;
-  currency: CurrencyEnum;
+  currency: CurrencyEnum | null;
   clientCurrencyRate: number;
   orderCurrencyRate: number;
   totalAmountUAH: number | null;

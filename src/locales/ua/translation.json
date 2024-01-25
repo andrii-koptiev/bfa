@@ -15,7 +15,7 @@
   "ua_menu_language_name": "Українська",
   "en_menu_language_name": "Англійська",
   "add_client_form_title": "Додати нового клієнта",
-  "add_client_form_subtitle": "* обов'язково заповнити",
+  "required_form_subtitle": "* обов'язково заповнити",
   "add_client_form_name_label": "Імʼя та прізвищє",
   "add_client_form_phone_label": "Телефон",
   "add_client_form_city_label": "Адреса",
@@ -44,5 +44,14 @@
   "orders_grid_order_currency_rate_column": "Курс замовлення",
   "orders_grid_total_amount_UAH_column": "Загальна сумма(UAH)",
   "orders_grid_profit_column": "Прибуток",
-  "orders_search_placeholder": "Пошук за # замовлення або магазином..."
+  "orders_search_placeholder": "Пошук за # замовлення або магазином...",
+  "add_order_form_title": "Додати замовлення",
+  "edit_order_form_title": "Редагувати замовлення",
+  "order_form_order_number_label": "Номер замовлення",
+  "order_form_store_name_label": "Назва магазину",
+  "order_form_currency_label": "Валюта",
+  "order_form_client_currency_rate_label": "Курс клієнта",
+  "order_form_order_currency_rate_label": "Курс замовлення",
+  "order_form_order_number_format_error_message": "має містити тільки букви, цифри та '-' символ",
+  "order_form_order_number_unique_error_message": "цей номер замовлення вже присутній у вашій базі"
 }

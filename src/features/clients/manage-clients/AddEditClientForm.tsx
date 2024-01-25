@@ -46,7 +46,7 @@ const AddEditClientForm: FC<Props> = ({
   return (
     <ModalFormCommon
       title={t(client ? 'edit_client_form_title' : 'add_client_form_title')}
-      subtitle={t('add_client_form_subtitle')}
+      subtitle={t('required_form_subtitle')}
       confirmButtonText={t(client ? 'common_edit' : 'common_add')}
       cancelButtonText={t('common_cancel')}
       onSubmitForm={handleSubmit}
