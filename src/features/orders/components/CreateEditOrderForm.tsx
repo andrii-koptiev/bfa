@@ -1,15 +1,20 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 import ModalFormCommon from '../../../components/ModalFormCommon';
+import SearchSelectCommon from '../../../components/SearchSelectCommon';
 import SelectCommon from '../../../components/SelectCommon';
 import { InputStyled } from '../../../components/styled';
 import { CurrencyEnum } from '../../../enums';
 import { useFormValidation } from '../../../hooks';
 import { OrderMappedInterface } from '../../../interfaces';
+import { useAppDispatch } from '../../../store';
+import { selectAllStores } from '../../../store/models/stores/selectors';
 import { STYLES_CONSTANTS } from '../../../utils';
 import { orderCurrencyOptions } from '../constants';
 import { useCreateEditOrderFormValidation } from '../hooks';
+import { useGetStores } from '../hooks/use-get-stores';
 import { CreateEditOrderFormValuesInterface } from '../interfaces';
 
 type Props = {
@@ -33,6 +38,9 @@ const CreateEditOrderForm: FC<Props> = ({
     'order_form_client_currency_rate_label',
   );
   const orderCurrencyRateInputLabel = t('order_form_order_currency_rate_label');
+
+  const storesSelectOptions = useSelector(selectAllStores);
+
   const { values, handleChange, handleSubmit, errors, isAllInputsValid } =
     useFormValidation<CreateEditOrderFormValuesInterface>({
       initialValues: {
@@ -54,6 +62,9 @@ const CreateEditOrderForm: FC<Props> = ({
       validateOnChange: true,
       onSubmit: (values) => onSubmitForm(values),
     });
+
+  useGetStores();
+
   return (
     <ModalFormCommon
       title={t(order ? 'edit_order_form_title' : 'add_order_form_title')}
@@ -73,6 +84,13 @@ const CreateEditOrderForm: FC<Props> = ({
         error={!!errors.orderNumber}
         helperText={errors.orderNumber}
         required
+      />
+      <SearchSelectCommon
+        label={storeNameInputLabel}
+        options={storesSelectOptions}
+        selectedValue={null}
+        onSelectionChange={handleChange}
+        placeholderText={'aaa'}
       />
       <SelectCommon
         label={currencyInputLabel}
