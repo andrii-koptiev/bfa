@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/bfa/static/css/main.6f30954a.css",
-    "main.js": "/bfa/static/js/main.f66db932.js",
-    "static/js/787.7d583014.chunk.js": "/bfa/static/js/787.7d583014.chunk.js",
-    "index.html": "/bfa/index.html",
-    "main.f66db932.js.map": "/bfa/static/js/main.f66db932.js.map",
-    "787.7d583014.chunk.js.map": "/bfa/static/js/787.7d583014.chunk.js.map"
+    "main.css": "/static/css/main.6f30954a.css",
+    "main.js": "/static/js/main.a524b419.js",
+    "static/js/787.7d583014.chunk.js": "/static/js/787.7d583014.chunk.js",
+    "index.html": "/index.html",
+    "main.a524b419.js.map": "/static/js/main.a524b419.js.map",
+    "787.7d583014.chunk.js.map": "/static/js/787.7d583014.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6f30954a.css",
-    "static/js/main.f66db932.js"
+    "static/js/main.a524b419.js"
   ]
 }
