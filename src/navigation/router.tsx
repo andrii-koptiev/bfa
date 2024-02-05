@@ -1,4 +1,3 @@
-import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import ClientsPage from '../features/clients/ClientsPage';
