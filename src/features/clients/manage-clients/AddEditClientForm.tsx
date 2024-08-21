@@ -5,6 +5,7 @@ import ModalFormCommon from '../../../components/ModalFormCommon';
 import { InputStyled } from '../../../components/styled';
 import { useFormValidation } from '../../../hooks';
 import { ClientMappedInterface } from '../../../interfaces';
+import { STYLES_CONSTANTS } from '../../../utils';
 import { useCreateEditClientFormValidation } from '../hooks';
 import { CreateEditClientFormValuesInterface } from '../interfaces';
 
@@ -46,7 +47,7 @@ const AddEditClientForm: FC<Props> = ({
   return (
     <ModalFormCommon
       title={t(client ? 'edit_client_form_title' : 'add_client_form_title')}
-      subtitle={t('add_client_form_subtitle')}
+      subtitle={t('required_form_subtitle')}
       confirmButtonText={t(client ? 'common_edit' : 'common_add')}
       cancelButtonText={t('common_cancel')}
       onSubmitForm={handleSubmit}
@@ -54,6 +55,7 @@ const AddEditClientForm: FC<Props> = ({
       isSubmitDisabled={!isAllInputsValid}
     >
       <InputStyled
+        sx={{ minHeight: STYLES_CONSTANTS.INPUT_MIN_HEIGHT }}
         label={nameInputLabel}
         name='name'
         value={values.name}
@@ -63,6 +65,7 @@ const AddEditClientForm: FC<Props> = ({
         required
       />
       <InputStyled
+        sx={{ minHeight: STYLES_CONSTANTS.INPUT_MIN_HEIGHT }}
         label={phoneInputLabel}
         name='phone'
         value={values.phone}
@@ -72,6 +75,7 @@ const AddEditClientForm: FC<Props> = ({
         required
       />
       <InputStyled
+        sx={{ minHeight: STYLES_CONSTANTS.INPUT_MIN_HEIGHT }}
         label={cityInputLabel}
         name='address'
         value={values.address}

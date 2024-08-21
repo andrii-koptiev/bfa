@@ -21,10 +21,10 @@ export const menuData: MenuData[] = [
     icon: GroupOutlinedIcon,
   },
   {
-    keyName: 'orders_menu',
-    icon: ShoppingCartIcon,
-    route: '',
     id: 2,
+    keyName: 'orders_menu',
+    route: ROUTES.ORDERS,
+    icon: ShoppingCartIcon,
   },
   {
     keyName: 'payments_menu',

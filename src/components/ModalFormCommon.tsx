@@ -33,10 +33,10 @@ const ModalFormCommon: FC<Props> = ({
       flexDirection='column'
       onSubmit={onSubmitForm}
     >
-      <Box mb='16px'>
+      <Box mb='32px'>
         <ModalHeaderCommon title={title} subtitle={subtitle} />
       </Box>
-      <Box display='flex' flexDirection='column' gap='24px' mb='48px'>
+      <Box display='flex' flexDirection='column' gap='20px' mb='24px'>
         {children}
       </Box>
       <Box

@@ -67,6 +67,8 @@ export const theme = createTheme({
     grey: {
       100: '#FAFAFA',
       200: '#EEEEEE',
+      300: '#9A9A9A',
+      400: '#64748B',
     },
   },
   typography: {
