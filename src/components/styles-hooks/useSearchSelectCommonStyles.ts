@@ -11,7 +11,7 @@ export const useSearchSelectCommonStyles = () => {
       display: 'flex',
       justifyContent: 'center',
       backgroundColor: 'transparent',
-      // minHeight: STYLES_CONSTANTS.INPUT_MIN_HEIGHT,
+      minHeight: STYLES_CONSTANTS.INPUT_MIN_HEIGHT,
     },
     container: {
       width: '100%',
@@ -29,13 +29,17 @@ export const useSearchSelectCommonStyles = () => {
       position: 'absolute',
       // height: '39px',
       width: '100%',
-      borderTopRightRadius: 0,
-      borderBottomRightRadius: 0,
+      // borderTopRightRadius: 0,
+      // borderBottomRightRadius: 0,
       backgroundColor: 'white',
-      borderTopLeftRadius: `${shape.borderRadius}px`,
-      borderBottomLeftRadius: `${shape.borderRadius}px`,
+      // borderTopLeftRadius: `${shape.borderRadius}px`,
+      // borderBottomLeftRadius: `${shape.borderRadius}px`,
+      border: 'none',
       textTransform: 'capitalize',
-      '& :hover': {
+      '& .MuiInputBase-root:hover': {
+        backgroundColor: 'transparent',
+      },
+      '&:hover': {
         backgroundColor: 'transparent',
         border: 'none',
       },
@@ -50,9 +54,9 @@ export const useSearchSelectCommonStyles = () => {
       width: '80%',
       height: '100%',
       // height: STYLES_CONSTANTS.INPUT_MIN_HEIGHT,
-      borderTopLeftRadius: 0,
-      borderBottomLeftRadius: 0,
-      '& .MuiFormControl-root': {
+      // borderTopLeftRadius: 0,
+      // borderBottomLeftRadius: 0,
+      '&.MuiFormControl-root': {
         backgroundColor: 'transparent',
         border: 'none',
         '& :hover': {
@@ -66,8 +70,8 @@ export const useSearchSelectCommonStyles = () => {
       },
 
       '& fieldset': {
-        borderTopLeftRadius: 0,
-        borderBottomLeftRadius: 0,
+        // borderTopLeftRadius: 0,
+        // borderBottomLeftRadius: 0,
         border: 'none',
       },
 

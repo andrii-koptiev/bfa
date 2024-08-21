@@ -2,8 +2,9 @@ import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
+import SearchSelectCommon from '../../../components/AutocompleteCommon';
+import AutocompleteCommon from '../../../components/AutocompleteCommon';
 import ModalFormCommon from '../../../components/ModalFormCommon';
-import SearchSelectCommon from '../../../components/SearchSelectCommon';
 import SelectCommon from '../../../components/SelectCommon';
 import { InputStyled } from '../../../components/styled';
 import { CurrencyEnum } from '../../../enums';
@@ -85,12 +86,16 @@ const CreateEditOrderForm: FC<Props> = ({
         helperText={errors.orderNumber}
         required
       />
-      <SearchSelectCommon
+      {/* <SearchSelectCommon
         label={storeNameInputLabel}
         options={storesSelectOptions}
         selectedValue={null}
         onSelectionChange={handleChange}
         placeholderText={'aaa'}
+      /> */}
+      <AutocompleteCommon
+        options={storesSelectOptions}
+        label={storeNameInputLabel}
       />
       <SelectCommon
         label={currencyInputLabel}
